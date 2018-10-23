@@ -1,17 +1,27 @@
 // Containers
-import MainContainer from './containers/Main'
+import DefaultContainer from './containers/DefaultContainer'
 
 // Views
 import Home from './views/Home'
+import Podcast from './views/Podcast'
+import Stories from './views/Stories'
+import Data from './views/Data'
 
 export const routes = [
     {
         path: '',
         name: 'home',
         components: {
-          default: MainContainer,
+          default: DefaultContainer,
           // 'header-top': Header
-        }
+        },
+        children: [
+          { path: '', component: Home },
+          { path: '/socorristas', name: 'podcast', component: Podcast },
+          { path: '/historias', name: 'stories', component: Stories },
+          { path: '/datos', name: 'data', component: Data },
+          { path: '/creditos', name: 'credits', component: Home },
+        ]
     }
     // {
     //     path: '/user', components: {
