@@ -1,0 +1,61 @@
+
+$color-primary: #2c7b25;
+$color-primary-hover: #0d5407;
+$color-scondary: #0d5407;
+
+body {
+  background: #000;
+}
+
+* { box-sizing: border-box; }
+
+.app-header {
+  margin-bottom: 1.5em;
+
+  nav {
+    background-color: #000;
+    position: fixed;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+    z-index: 100;
+
+    ul {
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      display: inline-block;
+      width: 25%;
+      transform: rotate(-4deg) translateY(-10px);
+      // border-right: 1px solid #fff;
+      border-bottom: 3px solid #fff;
+      // border-radius: 6px;
+      overflow: hidden;
+      &:nth-child(odd) { transform: rotate(2deg) translateY(-8px); }
+      a {
+        display: block;
+        padding: 16px 0;
+        background-color: $color-primary;
+        text-indent: -9999px;
+        margin: 0;
+        transition: all 200ms ease-in-out;
+        &:hover {
+          background-color: $color-primary-hover;
+        }
+      }
+    }
+  }
+}
+
+.podcast {
+
+  // padding-top: 1.5em;
+  padding-bottom: 3em;
+
+  .card {
+    margin-bottom: 1.5em;
+  }
+
+}

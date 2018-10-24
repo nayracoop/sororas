@@ -1,9 +1,11 @@
 <template>
-  <header>
+  <header class="app-header">
     <h1>Sororas</h1>
-    <ul>
-      <li v-for="link in links"><b-link :to="{ name: link.path }">{{ link.text }}</b-link></li>
-    </ul>
+    <nav>
+      <ul>
+        <li v-for="link in links"><b-link :to="{ name: link.path }">{{ link.text }}</b-link></li>
+      </ul>
+    </nav>
   </header>
 </template>
 
