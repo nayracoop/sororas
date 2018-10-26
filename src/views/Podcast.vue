@@ -1,11 +1,13 @@
 <template>
   <div class="podcast">
-    <b-card v-for="episode in episodes" img-src="https://static1.squarespace.com/static/5a0432d9d74cff5fa58a616a/5afef9b26d2a73441ec14be3/5b7d5a69c2241bf31c648c91/1534941825801/la+mujer+del+torero.jpg?format=2500w"
-      img-alt="Card image"
-      img-top>
-      <p class="card-text">
-        {{ episode.title }}
-      </p>
+    <h2>Socorristas</h2>
+    <b-card v-for="(episode, index) in episodes" no-body>
+        <div class="img" :style="'background-image: url('+episode.img+'); background-position:center '+(-55 + scrollTop -80 * index)+'px;'"></div>
+        <b-card-body>
+          <p class="card-text">
+            <b>#{{ index + 1 }}</b> - {{ episode.title }}
+          </p>
+        </b-card-body>
     </b-card>
   </div>
 </template>
@@ -16,16 +18,43 @@ export default {
 
   data () {
     return {
-      test: 'Hola podcast',
+      scrollTop: 0,
       episodes: [
-        { 'title': 'Episodio 1. Situación del aborto en argentina: tipificación del código penal y excepciones, Protocolo ILE, datos estadísticos, tratamiento legislativo del Proyecto IVE.' },
-        { 'title': 'Episodio 2. El dispositivo socorrista: definición y orígenes de la práctica, surgimiento del movimiento Socorristas en Red, quiénes son las socorristas y por qué desarrollan esta práctica.' },
-        { 'title': 'Episodio 3. El dispositivo socorrista. La línea telefónica.' },
-        { 'title': 'Episodio 4. El dispositivo socorrista. Los encuentros grupales cara a cara.' },
-        { 'title': 'Episodio 5. El dispositivo socorrista. Seguimiento telefónico.' },
-        { 'title': 'Episodio 6. El dispositivo socorrista. Controles médicos post-aborto.' },
+        { 'title': 'El aborto en Argentina' ,
+          'description': 'T ipificación del código penal y excepciones, Protocolo ILE, datos estadísticos, tratamiento legislativo del Proyecto IVE.',
+          'img': 'https://somosmafia.com/wp/wp-content/uploads/2018/06/vigiliatodo-2-1920x1280.jpg'
+          // 'img': 'https://instagram.faep10-1.fna.fbcdn.net/vp/fa82fab41c2d05044978e0a2bec89181/5C8A07C5/t51.2885-15/sh0.08/e35/s640x640/42171040_563478167421398_5503194955718350722_n.jpg'
+        },
+        { 'title': 'El dispositivo socorrista: definición y orígenes de la práctica, surgimiento del movimiento Socorristas en Red, quiénes son las socorristas y por qué desarrollan esta práctica.' ,
+          'img': 'https://somosmafia.com/wp/wp-content/uploads/2018/06/vigiliatodo-18-1920x1280.jpg'
+          // 'img': 'https://instagram.faep10-1.fna.fbcdn.net/vp/28c1e927c77705f563bab7420ab78521/5C8A6614/t51.2885-15/sh0.08/e35/s640x640/42664938_552253318567906_5087106969689134759_n.jpg'
+        },
+        { 'title': 'El dispositivo socorrista. La línea telefónica.' ,
+          'img': 'https://somosmafia.com/wp/wp-content/uploads/2018/08/8a-2-1920x1280.jpg'
+          // 'img': 'https://instagram.faep10-1.fna.fbcdn.net/vp/0af8ce9265351802c667a1df07e9ea80/5C561236/t51.2885-15/sh0.08/e35/s640x640/42003826_487152325132335_4428828813509256443_n.jpg'
+        },
+        { 'title': 'El dispositivo socorrista. Los encuentros grupales cara a cara.' ,
+          'img': 'https://instagram.faep10-1.fna.fbcdn.net/vp/0124d8cb86d8f867c81686c19a9dd8f1/5C6C501B/t51.2885-15/sh0.08/e35/s640x640/42002832_303900457078812_3131796752868044641_n.jpg'
+        },
+        { 'title': 'El dispositivo socorrista. Seguimiento telefónico.' ,
+          'img': 'https://instagram.faep10-1.fna.fbcdn.net/vp/477d85062279d05f8bad3c23937efca2/5C873CCA/t51.2885-15/sh0.08/e35/s640x640/42655770_741650506187905_1514331352315011531_n.jpg'
+        },
+        { 'title': 'El dispositivo socorrista. Controles médicos post-aborto.' ,
+          'img': 'https://instagram.faep10-1.fna.fbcdn.net/vp/d8ff53021106d74a20e91da95100c243/5C6BF6B3/t51.2885-15/sh0.08/e35/s640x640/41763806_252181448813996_7997080599414090320_n.jpg'
+        }
       ]
     }
+  },
+  methods: {
+    handleScroll () {
+      this.scrollTop = window.scrollY / 10;
+    }
+  },
+  created () {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.handleScroll);
   }
 
 }

@@ -1,4 +1,4 @@
-$font-path: '../fonts/';
+$font-path: '/src/assets/fonts/';
 
 $font-family-titles: 'Xtreem Fat';
 
@@ -17,16 +17,22 @@ $color-scondary: #0d5407;
 
 body {
   font: normal 100%/1.375 Arial, Helvetica, sans-serif;
-  background: #000;
+  background: #fafafa;
 }
 
 * { box-sizing: border-box; }
 
 .app-header {
-  margin-bottom: 1.5em;
-
+  // margin-bottom: 1.5em;
+  padding-top: 15px;
+  padding-bottom: 15px;
   nav {
-    background-color: #000;
+    // background-color: #000
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.75+100 */
+    // background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.95) 100%); /* FF3.6-15 */
+    // background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.95) 100%); /* Chrome10-25,Safari5.1-6 */
+    // background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.95) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#bf000000',GradientType=0 ); /* IE6-9 */
     position: fixed;
     bottom: -10px;
     left: 0;
@@ -41,16 +47,16 @@ body {
     li {
       display: inline-block;
       width: 25%;
-      transform: rotate(-4deg) translateY(-10px);
+      // transform: rotate(-4deg) translateY(-10px);
       // border-right: 1px solid #fff;
-      border-bottom: 3px solid #fff;
+      // border-bottom: 3px solid #fff;
       // border-radius: 6px;
       overflow: hidden;
-      &:nth-child(odd) { transform: rotate(2deg) translateY(-8px); }
+      // &:nth-child(odd) { transform: rotate(2deg) translateY(-8px); }
       a {
         display: block;
         padding: 16px 0;
-        background-color: $color-primary;
+        background-color: #fff;// $color-primary;
         text-indent: -9999px;
         margin: 0;
         transition: all 200ms ease-in-out;
@@ -63,7 +69,12 @@ body {
 
   h1 {
     font-family: $font-family-titles;
-    color: #fff;
+    font-size:4em;
+    color: #333;
+    margin: 0;
+    line-height: 1;
+    text-align: center;
+    padding-right: 25px;
   }
 }
 
@@ -74,6 +85,21 @@ body {
 
   .card {
     margin-bottom: 1.5em;
+    border:0;
+    border-radius:0;
+    box-shadow: 0 5px 8px -5px rgba(0,0,0,.15);
+
+    .img {
+      height: 320px;
+      // background-attachment: fixed;
+      background-size: auto 420px  ;
+    }
+
+    b {
+      font-size:1.75em;
+      font-style: italic;
+      font-weight: 900;
+    }
   }
 
 }
