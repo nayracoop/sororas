@@ -1,9 +1,22 @@
+$font-path: '../fonts/';
+
+$font-family-titles: 'Xtreem Fat';
 
 $color-primary: #2c7b25;
 $color-primary-hover: #0d5407;
 $color-scondary: #0d5407;
 
+@font-face{
+  font-family: 'Xtreem Fat';
+  src:  url($font-path + 'xtreemfat.woff2') format('woff2'),
+        url($font-path + 'xtreemfat.woff') format('woff');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
 body {
+  font: normal 100%/1.375 Arial, Helvetica, sans-serif;
   background: #000;
 }
 
@@ -46,6 +59,11 @@ body {
         }
       }
     }
+  }
+
+  h1 {
+    font-family: $font-family-titles;
+    color: #fff;
   }
 }
 
