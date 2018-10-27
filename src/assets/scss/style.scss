@@ -1,4 +1,4 @@
-$font-path: '/src/assets/fonts/';
+
 
 $font-family-titles: 'Xtreem Fat';
 
@@ -6,17 +6,10 @@ $color-primary: #2c7b25;
 $color-primary-hover: #0d5407;
 $color-scondary: #0d5407;
 
-@font-face{
-  font-family: 'Xtreem Fat';
-  src:  url($font-path + 'xtreemfat.woff2') format('woff2'),
-        url($font-path + 'xtreemfat.woff') format('woff');
-  font-style: normal;
-  font-weight: normal;
-  text-rendering: optimizeLegibility;
-}
+
 
 body {
-  font: normal 100%/1.375 Arial, Helvetica, sans-serif;
+  font: 400 100%/1.375 'Open Sans', Arial, Helvetica, sans-serif;
   background: #fafafa;
 }
 
@@ -78,6 +71,11 @@ body {
   }
 }
 
+h2 {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 .podcast {
 
   // padding-top: 1.5em;
@@ -89,10 +87,28 @@ body {
     border-radius:0;
     box-shadow: 0 5px 8px -5px rgba(0,0,0,.15);
 
-    .img {
+    .player {
       height: 320px;
       // background-attachment: fixed;
-      background-size: auto 420px  ;
+      background-size: auto 420px;
+      position: relative;
+      transform: translate3d(0,0,0);
+
+      .controls {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        .btn, time {
+          color: #fff;
+          font-size: 2.5em;
+        }
+        time {
+          font-size: 1.25em;
+          // float:right;
+        }
+      }
     }
 
     b {

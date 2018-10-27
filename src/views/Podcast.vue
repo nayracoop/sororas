@@ -2,7 +2,12 @@
   <div class="podcast">
     <h2>Socorristas</h2>
     <b-card v-for="(episode, index) in episodes" no-body>
-        <div class="img" :style="'background-image: url('+episode.img+'); background-position:center '+(-55 + scrollTop -80 * index)+'px;'"></div>
+        <div class="player" :style="'background-image: url('+episode.img+'); background-position:center '+(-55 + scrollTop -80 * index)+'px;'">
+          <div class="controls">
+            <b-button variant="link"><font-awesome-icon icon="play-circle" /></b-button>
+            <time>0:00</time>
+          </div>
+        </div>
         <b-card-body>
           <p class="card-text">
             <b>#{{ index + 1 }}</b> - {{ episode.title }}
@@ -21,7 +26,7 @@ export default {
       scrollTop: 0,
       episodes: [
         { 'title': 'El aborto en Argentina' ,
-          'description': 'T ipificación del código penal y excepciones, Protocolo ILE, datos estadísticos, tratamiento legislativo del Proyecto IVE.',
+          'description': 'Tipificación del código penal y excepciones, Protocolo ILE, datos estadísticos, tratamiento legislativo del Proyecto IVE.',
           'img': 'https://somosmafia.com/wp/wp-content/uploads/2018/06/vigiliatodo-2-1920x1280.jpg'
           // 'img': 'https://instagram.faep10-1.fna.fbcdn.net/vp/fa82fab41c2d05044978e0a2bec89181/5C8A07C5/t51.2885-15/sh0.08/e35/s640x640/42171040_563478167421398_5503194955718350722_n.jpg'
         },
