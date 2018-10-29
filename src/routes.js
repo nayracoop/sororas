@@ -10,17 +10,19 @@ import Data from './views/Data'
 export const routes = [
     {
         path: '',
-        name: 'home',
+        // name: 'home',
         components: {
           default: DefaultContainer,
           // 'header-top': Header
         },
         children: [
-          { path: '', component: Home },
-          { path: '/socorristas', name: 'podcast', component: Podcast },
+          { path: '/', name: 'podcast', component: Podcast },
+          // { path: '/socorristas', name: 'podcast', component: Podcast },
           { path: '/historias', name: 'stories', component: Stories },
           { path: '/datos', name: 'data', component: Data },
-          { path: '/creditos', name: 'credits', component: Home },
+          { path: '/informacion', name: 'info', component: Data },
+          { path: '/dispositivo-socorrista', name: 'cards', component: Home },
+          { path: '*', redirect: '/' },
         ]
     }
     // {

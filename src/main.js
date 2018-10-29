@@ -1,20 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import BootstrapVue from 'bootstrap-vue'
-
 import App from './App'
+
+import { store } from './store';
 import { routes } from './routes'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPlayCircle } from '@fortawesome/free-solid-svg-icons'
+import { faPlayCircle, faPauseCircle, faPodcast, faChartBar, faInfoCircle, faChevronDown, faHeadphones, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faCommentDots, faListAlt } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faPlayCircle)
+library.add([ faPlayCircle, faPauseCircle, faPodcast, faCommentDots, faChartBar, faInfoCircle, faListAlt, faChevronDown, faHeadphones, faTimes ])
 
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
-
 Vue.component('font-awesome-icon', FontAwesomeIcon)
-
 Vue.config.productionTip = false
 
 const router = new VueRouter({
@@ -33,6 +33,7 @@ const router = new VueRouter({
 
 new Vue({
   el: '#app',
+  store,
   router,
   render: h => h(App)
 })
