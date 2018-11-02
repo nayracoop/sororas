@@ -23,7 +23,7 @@ body {
 * { box-sizing: border-box; }
 
 .app .cover-header {
-  height: calc(100vh - 3em);
+  height: calc(100vh - 3em - 15px);
   width: 100vw;
   display: table-cell;
   vertical-align: middle;
@@ -33,7 +33,7 @@ body {
   // background-size: contain, cover;
   background: $color-background url(https://somosmafia.com/wp/wp-content/uploads/2018/06/ni-unx-menxs-20-1920x1280.jpg) no-repeat center center;
   background-size: cover;
-  border:15px solid $color-background;
+  border-top: 15px solid $color-background;
 
   // &::after {
   //   content:"";
@@ -45,9 +45,9 @@ body {
   //   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00100015', endColorstr='#100015',GradientType=0 ); /* IE6-9 */
   //   height:4em;
   //   position: absolute;
-  //   left:0;
-  //   right:0;
-  //   bottom:0;
+  //   left: 0;
+  //   right: 0;
+  //   bottom: 0;
   // }
 }
 
@@ -100,10 +100,14 @@ body {
         font-size:0.625em;
         margin: 0;
         transition: all 200ms ease-in-out;
-        &:hover,
+        &:not(.no-link):hover,
         &.active {
           background-color: #fafafa;
           color: #d3a;
+        }
+        &.no-link.active {
+          background-color: #d3a;
+          color: #fafafa;
         }
         span {
           display: block;
@@ -185,8 +189,8 @@ section header {
 
     .card {
       margin-bottom: 1.5em;
-      border:0;
-      border-radius:0;
+      border: 0;
+      border-radius: 0;
       box-shadow: 0 5px 8px -5px rgba(0,0,0,.5);
       .card-body {
         padding-top: 0;
@@ -251,8 +255,8 @@ section header {
           bottom: 22px;
           left: 5.875em;
           right: 0;
-          left:0;
-          bottom:0;
+          left: 0;
+          bottom: 0;
           background: rgba(255,255,255,.25);
           height: 6px;
           border-radius: 0;
@@ -283,21 +287,108 @@ section header {
 
 }
 
+.stories {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding-bottom: 3em;
+  box-shadow: 0 -2px 10px rgba(0,0,0,.1);
+
+  transition: transform 300ms ease-in;
+  transform: translateY(150px);
+
+  &.opened {
+    transform: none;
+    transition-timing-function: ease-out;
+  }
+
+  ul {
+    float:left;
+    padding: 0;
+    margin: 15px auto;
+
+    li {
+      // width: 50px;
+      text-align: center;
+      /* text-transform: lowercase; */
+      font-size: 0.875em;
+      position: relative;
+      float:right;
+      list-style:none;
+      margin-right: 8px;
+
+
+      .bubble {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #ddd;
+
+        a {
+          display: block;
+          position: absolute;
+          top: 2px;
+          right: 2px;
+          bottom: 2px;
+          left: 2px;
+          text-align: left;
+          /* text-indent: -9999px; */
+          border-radius: 50%;
+          background: #fff;
+          overflow: hidden;
+          border:1px solid #fff;
+          background: #eee;
+
+          text-indent: -9999px;
+          // background-image: url("https://instagram.faep10-1.fna.fbcdn.net/vp/d8ff53021106d74a20e91da95100c243/5C6BF6B3/t51.2885-15/sh0.08/e35/s640x640/41763806_252181448813996_7997080599414090320_n.jpg");
+          background-size: cover;
+        }
+      }
+
+      &.active {
+        float:left;
+
+        .bubble {
+          /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#50fc59+0,2c7b25+76 */
+          background: rgb(80,252,89); /* Old browsers */
+          background: -moz-linear-gradient(45deg, rgba(80,252,89,1) 0%, rgba(44,123,37,1) 76%); /* FF3.6-15 */
+          background: -webkit-linear-gradient(45deg, rgba(80,252,89,1) 0%,rgba(44,123,37,1) 76%); /* Chrome10-25,Safari5.1-6 */
+          background: linear-gradient(45deg, rgba(80,252,89,1) 0%,rgba(44,123,37,1) 76%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#50fc59', endColorstr='#2c7b25',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+        }
+      }
+    }
+  }
+
+
+}
+
+.data {
+  padding-bottom: 3em;
+  
+  article {
+    margin:1em 0;
+  }
+}
+
 #player {
   position: fixed;
   background: #fff;
   top:-2em;
   left: 0;
   right: 0;
-  padding: 0.125em 15px;
+  padding: 0.25em 15px;
   box-shadow: 0 2px 10px rgba(0,0,0,.1);
   transition: top 300ms ease-in-out;
   &.visible {
-    top:0;
+    top: 0;
   }
   .controls,
   .title {
-    font-size: 0.875em;
+    font-size: 1em;
     float:left;
     width: 1.5em;
     margin: 0;

@@ -1,5 +1,5 @@
 <template>
-  <div id="player" :class="{ visible:visible }">
+  <div id="player" class="container" :class="{ visible:visible }">
     <div class="controls">
       <font-awesome-icon @click="play" v-if="paused" class="play" icon="play-circle" />
       <font-awesome-icon @click="pause" v-else class="pause" icon="pause-circle" />
