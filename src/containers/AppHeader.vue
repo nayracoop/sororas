@@ -5,7 +5,7 @@
     <nav class="container">
       <ul>
         <li v-for="link in links">
-          <a href="#" class="no-link" :class="{ active: opened }" v-if="link.action" @click.prevent="link.action">
+          <a href="#" class="no-link" :class="{ active: opened, news:newStories }" v-if="link.action" @click.prevent="link.action">
             <span><font-awesome-icon :icon="link.icon" /></span>
             <span class="sr-only">{{ link.text }}</span>
           </a>
@@ -38,7 +38,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      opened: types.IS_OPENED
+      opened: types.VISIBLE,
+      newStories: types.RELEASES,
     })
   },
   methods: {

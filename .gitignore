@@ -1,6 +1,8 @@
 .DS_Store
 node_modules/
 dist/
+src/assets/video/
+src/assets/audio/
 npm-debug.log
 yarn-error.log
 
