@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <b-container>
-      <div class="cover-header">
+      <div class="cover-header" ref="header">
         <app-header />
       </div>
     </b-container>
@@ -36,6 +36,9 @@ export default {
     return {
 
     }
+  },
+  mounted () {
+    this.$refs.header.style.height = (Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - 106) + 'px';
   }
 }
 
