@@ -301,6 +301,18 @@ section header {
 
 }
 
+.cards {
+  padding-bottom:3em;
+  .carousel-item {
+    img {
+      display: none !important;
+    }
+    .carousel-caption {
+      position: static;
+    }
+  }
+}
+
 .stories {
   .story-cards {
     width: 1px;
@@ -485,6 +497,52 @@ section header {
 
   article {
     margin:1em 0;
+
+    .description {
+      background: #ffd5d5;
+      padding:1em 15px;
+      b {
+        display: block;
+        font-size: 3em;
+        float: left;
+        margin: 0 30px 5px 0;
+      }
+    }
+
+  }
+}
+
+.info {
+  padding-bottom:3em;
+  h3:not(:first-of-type) {
+    margin-top:2em;
+  }
+  h3, h4 {
+    font-size: 1.25em;
+    font-weight: 700;
+    font-style: italic;
+    // text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 0.5em;
+  }
+  h4 {
+    font-style: normal;
+    font-size: 1em;
+    text-transform: none;
+  }
+  li {
+    color:$color-scondary;
+    font-size: 1em;
+  }
+  a {
+    color: #fff;
+    &:hover {
+      color: #50fc59;
+    }
+  }
+  p {
+    color: #fff;
   }
 }
 

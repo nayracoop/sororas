@@ -2,10 +2,11 @@
 import DefaultContainer from './containers/DefaultContainer'
 
 // Views
-import Home from './views/Home'
 import Podcast from './views/Podcast'
+import Cards from './views/Cards'
 import Stories from './views/Stories'
 import Data from './views/Data'
+import Info from './views/Info'
 
 export const routes = [
     {
@@ -20,8 +21,8 @@ export const routes = [
           // { path: '/socorristas', name: 'podcast', component: Podcast },
           { path: '/historias', name: 'stories', component: Stories },
           { path: '/datos', name: 'data', component: Data },
-          { path: '/informacion', name: 'info', component: Data },
-          { path: '/dispositivo-socorrista', name: 'cards', component: Home },
+          { path: '/informacion', name: 'info', component: Info },
+          { path: '/dispositivo-socorrista', name: 'cards', component: Cards },
           { path: '*', redirect: '/' },
         ]
     }
