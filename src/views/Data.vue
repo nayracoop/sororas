@@ -16,7 +16,7 @@
         <article>
           <iframe id="datawrapper-chart-yDdOV" src="//datawrapper.dwcdn.net/yDdOV/3/" scrolling="no" frameborder="0" allowtransparency="true" style="width: 0; min-width: 100% !important;" height="319"></iframe>
           <div class="description">
-            <p><b>81,9%</b> en cuatro años acompañaron a 12.081 mujeres en sus procesos de aborto medicamentoso de un total de 14.752 que las contactaron. En el 2017 asesoraron a 161 mujeres para que accedan a la Interrupción Legal del Embarazo en servicios de salud y velaron por el cumplimiento del Protocolo de atención.</p>
+            <p><b>72,9%</b> de las mujeres que contactaron a las Socorristas en Red tienen entre 20 y 34 años. Esto denota que la mayoría de las mujeres que abortaron con medicación y fueron acompañadas son de edades en que “socialmente” se supone que están preparadas para ser madres.</p>
           </div>
         </article>
       </b-col>

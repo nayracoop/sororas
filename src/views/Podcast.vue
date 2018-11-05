@@ -2,7 +2,7 @@
   <section class="podcast">
     <header>
       <h2>Socorristas</h2>
-      <p>Podcast de entrevistas a mujeres socorristas</p>
+      <p>Un podcast para conocer la práctica del socorrismo en la voz de sus protagonistas</p>
     </header>
     <b-row>
       <b-col sm="12" md="4" v-for="episode in podcastEpisodes" :key="episode.title">
