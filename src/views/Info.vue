@@ -67,6 +67,16 @@
 
 <script>
 export default {
+  beforeRouteEnter (to, from, next) {
+    if(from.name != null) {
+      window.scrollTo({
+        top: Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - 32,
+        left: 0,
+        behavior: 'smooth'
+      })
+    }
+    next()
+  }
 }
 </script>
 

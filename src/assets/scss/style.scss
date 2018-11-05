@@ -303,12 +303,39 @@ section header {
 
 .cards {
   padding-bottom:3em;
+  .carousel-inner {
+    max-width:680px;
+    margin:0 auto;
+  }
   .carousel-item {
     img {
       display: none !important;
     }
     .carousel-caption {
+      padding-top: 2em;
+      padding-bottom: 3em;
       position: static;
+      h2 {
+        font-size: 1.25em;
+        font-weight: 700;
+        font-style: italic;
+        text-align: center;
+        text-transform: uppercase;
+      }
+    }
+  }
+  .carousel-indicators {
+    bottom:auto;
+    top: 0;
+    z-index: 10;
+
+    li {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      &.active {
+        background-color: #50fc59;
+      }
     }
   }
 }
