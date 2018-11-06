@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import VueAnalytics from 'vue-analytics'
 import BootstrapVue from 'bootstrap-vue'
 import App from './App'
 
@@ -14,6 +15,10 @@ library.add([ faPlayCircle, faPauseCircle, faPodcast, faCommentDots, faChartBar,
 
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
+Vue.use(VueAnalytics, {
+  id: 'UA-128757601-1',
+  routes
+});
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false
 
