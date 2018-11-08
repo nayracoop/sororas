@@ -15,10 +15,6 @@ library.add([ faPlayCircle, faPauseCircle, faPodcast, faCommentDots, faChartBar,
 
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
-Vue.use(VueAnalytics, {
-  id: 'UA-128757601-1',
-  routes
-});
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false
 
@@ -34,6 +30,10 @@ const router = new VueRouter({
   //   }
   //   return {x: 0, y: 0};
   // }
+});
+Vue.use(VueAnalytics, {
+  id: 'UA-128757601-1',
+  router
 });
 
 new Vue({

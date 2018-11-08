@@ -1,7 +1,7 @@
 <template>
   <li :class="{ active:updated }" v-if="enabled">
     <article class="story">
-      <div class="bubble"><a href="#" @click.prevent="openStory">{{ title }}</a></div>
+      <div class="bubble"><a href="#" @click.prevent="openStory" :style="'background-image: url(' + background + ')'">{{ title }}</a></div>
       <!-- <div class="visor" ref="visor">
         <video v-for="part in parts" :src="part.src"></video>
       </div> -->
@@ -39,6 +39,9 @@ export default {
         }
       })
       return Boolean(this.storyList[this.id].stories.find(el => { return el.enabled === true }))
+    },
+    background () {
+      return this.storyList[this.id].current < 0 ? this.storyList[this.id].stories[0].img : this.storyList[this.id].stories[this.storyList[this.id].current].img
     }
   },
   methods: {

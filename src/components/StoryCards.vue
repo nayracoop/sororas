@@ -59,7 +59,7 @@ export default {
       this.video.pause()
       this.video.currentTime = 0;
       this.currentVideo++
-      this.indexes[this.currentStory] = this.currentVideo
+      this.storyList[this.currentStory].current = this.indexes[this.currentStory] = this.currentVideo
     },
     timeUpdated () {
       this.progress = this.video.currentTime / this.video.duration * 100
