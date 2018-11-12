@@ -6,7 +6,7 @@
       </div>
     </b-container>
     <b-container class="app-body">
-      <main>
+      <main :class="{ 'menu-opened':storyMenuOpened }">
         <router-view></router-view>
         <app-stories />
       </main>
@@ -19,11 +19,12 @@
 </template>
 
 <script>
-
+import { mapGetters } from 'vuex';
 import AppHeader from './AppHeader'
 import AppFooter from './AppFooter'
 import AppStories from '../views/Stories'
 import AppPodcastPlayer from '../components/PodcastPlayer'
+import * as types from '../store/types';
 
 export default {
   components: {
@@ -36,6 +37,11 @@ export default {
     return {
 
     }
+  },
+  computed: {
+    ...mapGetters({
+      storyMenuOpened: types.VISIBLE
+    })
   },
   mounted () {
     this.$refs.header.style.height = (Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - 106) + 'px';

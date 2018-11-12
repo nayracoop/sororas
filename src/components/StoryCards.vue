@@ -8,11 +8,15 @@
         <div class="progress"><div class="bar" ref="progressBar" :style="'width:' + ((index == currentVideo) ? progress : 100 * Number(index < currentVideo)) + '%'"></div></div>
       </div>
     </div>
+    <a href="#" class="next" @click.prevent="next"><font-awesome-icon icon="long-arrow-alt-left" /> Siguiente</a>
+    <a href="#" class="prev" @click.prevent="prev"><font-awesome-icon icon="long-arrow-alt-left" /> Anterior</a>
+    <a href="#" class="back" @click.prevent="close"><font-awesome-icon icon="long-arrow-alt-left" /> Volver</a>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
+import { mapMutations } from 'vuex';
 import * as types from '../store/types';
 
 export default {
@@ -38,16 +42,27 @@ export default {
     }
   },
   methods: {
+    ...mapMutations({
+      pausePodcasts: types.PAUSE
+    }),
     open (id) {
+      this.pausePodcasts()
       this.progress = 0
       this.currentStory = id
       this.currentVideo = this.list.findIndex(el => { return el.viewed === false })
       if(this.currentVideo < 0) this.currentVideo = this.indexes[this.currentStory] //this.currentVideo = 0
       this.play()
     },
+    close () {
+      this.$emit('ended')
+    },
     play () {
       this.progress = 0
       if(this.currentVideo >= this.list.length) this.currentVideo = 0
+      if(this.video) {
+        this.video.pause()
+        this.video.currentTime = 0
+      }
       this.video = this.$refs['video-'+this.currentStory+'-'+this.currentVideo][0]
       this.list[this.currentVideo].viewed = true
 
@@ -68,6 +83,11 @@ export default {
       this.currentVideo++
       if(this.currentVideo >= this.list.length)  this.$emit('ended')
       else this.play()
+    },
+    prev () {
+      this.currentVideo--
+      if(this.currentVideo < 0) this.currentVideo = 0
+      this.play()
     }
   },
   mounted() {

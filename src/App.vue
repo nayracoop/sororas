@@ -9,6 +9,7 @@
 </script>
 
 <style lang="scss">
+  $img-path: '~/src/assets/img/';
   $backgrounds-path: '~/src/assets/img/bg/';
   $font-path: '~/src/assets/fonts/';
 
