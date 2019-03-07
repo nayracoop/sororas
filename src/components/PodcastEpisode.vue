@@ -76,11 +76,16 @@ export default {
   },
   methods: {
     toggleAudio () {
+      if (!this.episodeContent.audio.paused)
+        {this.episodeContent.audio.el.pause()}
+      else
+        {this.episodeContent.audio.el.play()}
       this.episodeContent.audio.paused = !this.episodeContent.audio.paused
     }
   },
   watch: {
     paused (val) {
+      console.log(this.episodeContent)
       if (val) {
         this.$refs.card.classList.remove('playing')
         this.$refs.card.classList.add('paused')

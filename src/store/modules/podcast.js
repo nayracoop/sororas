@@ -11,10 +11,11 @@ const state = {
       description: 'Junto a la abogada Agustina Ramón Michel analizamos cuál es la situación del aborto en Argentina.',
       img: '/src/assets/img/sororas_1.jpg',
       audio: {
-          src: '/src/assets/audio/sororas_1.mp3',
-          duration: 702,
-          currentTime: 0,
-          paused: true
+        el: null,
+        src: '/src/assets/audio/sororas_1.mp3',
+        duration: 702,
+        currentTime: 0,
+        paused: true
       },
       checkpoints: [ { time: 10, reached:false } ],
       listened: false
@@ -26,10 +27,11 @@ const state = {
       // img: '/src/assets/img/sororas_1.jpg',
       img: '/src/assets/img/sororas_2.jpg',
       audio: {
-          src: '/src/assets/audio/sororas_2.mp3',
-          duration: 732,
-          currentTime: 0,
-          paused: true
+        el: null,
+        src: '/src/assets/audio/sororas_2.mp3',
+        duration: 732,
+        currentTime: 0,
+        paused: true
       },
       checkpoints: [ { time: 10, reached:false } ],
       listened: false
@@ -41,10 +43,11 @@ const state = {
       // img: '/src/assets/img/sororas_1.jpg',
       img: '/src/assets/img/sororas_3.jpg',
       audio: {
-          src: '/src/assets/audio/sororas_3.mp3',
-          duration: 422,
-          currentTime: 0,
-          paused: true
+        el: null,
+        src: '/src/assets/audio/sororas_3.mp3',
+        duration: 422,
+        currentTime: 0,
+        paused: true
       },
       checkpoints: [ { time: 10, reached:false } ],
       listened: false
@@ -55,10 +58,11 @@ const state = {
       description: 'Belén Grosso nos cuenta cómo son los encuentros en los que las mujeres obtienen información sobre el uso de medicación para abortar.',
       img: '/src/assets/img/sororas_4.jpg',
       audio: {
-          src: '/src/assets/audio/sororas_4.mp3',
-          duration: 843,
-          currentTime: 0,
-          paused: true
+        el: null,
+        src: '/src/assets/audio/sororas_4.mp3',
+        duration: 843,
+        currentTime: 0,
+        paused: true
       },
       checkpoints: [ { time: 10, reached:false } ],
       listened: false
@@ -69,10 +73,11 @@ const state = {
       description: 'Indagamos en el proceso de interrupción del embarazo mediante el uso de medicación desde la perspectiva de Nadia Mamaní.',
       img: '/src/assets/img/sororas_5.jpg',
       audio: {
-          src: '/src/assets/audio/sororas_5.mp3',
-          duration: 550,
-          currentTime: 0,
-          paused: true
+        el: null,
+        src: '/src/assets/audio/sororas_5.mp3',
+        duration: 550,
+        currentTime: 0,
+        paused: true
       },
       checkpoints: [ { time: 10, reached:false } ],
       listened: false
@@ -83,10 +88,11 @@ const state = {
       description: 'La médica Mariana Lucero nos cuenta cómo articula con las socorristas para garantizar la implementación del Protocolo de Interrupción Legal del Embarazo.',
       img: '/src/assets/img/sororas_6.jpg',
       audio: {
-          src: '/src/assets/audio/sororas_6.mp3',
-          duration: 628,
-          currentTime: 0,
-          paused: true
+        el: null,
+        src: '/src/assets/audio/sororas_6.mp3',
+        duration: 628,
+        currentTime: 0,
+        paused: true
       },
       checkpoints: [ { time: 10, reached:false } ],
       listened: false

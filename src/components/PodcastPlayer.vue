@@ -93,6 +93,7 @@ export default {
       let audio = new Audio(episode.audio.src)
       audio.addEventListener('ended', this.audioEnded)
       audio.addEventListener('timeupdate', this.timeUpdated)
+      episode.el = audio
       return audio
     })
   }
