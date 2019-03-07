@@ -14,9 +14,9 @@
 <script>
 import AppStoryBubble from '../components/StoryBubble'
 import AppStoryCards from '../components/StoryCards'
-import { mapGetters } from 'vuex';
-import { mapMutations } from 'vuex';
-import * as types from '../store/types';
+import { mapGetters } from 'vuex'
+import { mapMutations } from 'vuex'
+import * as types from '../store/types'
 
 export default {
   components: {
@@ -25,7 +25,7 @@ export default {
   },
   data () {
     return {
-      fullscreen: false,
+      fullscreen: false
     }
   },
   computed: {
@@ -37,9 +37,9 @@ export default {
     menuWidth () {
       let count = 0
       this.storyList.forEach(el => {
-        if(el.stories.find(st => { return st.enabled })) count++
+        if (el.stories.find(st => { return st.enabled })) count++
       })
-      return 66*count
+      return 66 * count
       // return 68*this.storyList.find(el => { return el.stories.find(st => { return st.enabled }) }).length
     }
   },
@@ -58,26 +58,25 @@ export default {
       // this.fullscreen = !this.fullscreen;
     },
     updateFullscreenMode () {
-      var mode = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen || document.MSFullscreen;
-    	if(!mode) {
+      var mode = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen || document.MSFullscreen
+    	if (!mode) {
         this.hideVisor()
         this.$refs.display.stop()
     	}
     },
     ended () {
-      if (document.exitFullscreen) document.exitFullscreen();
-    	else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
-    	else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
-    	else if (document.msExitFullscreen) document.msExitFullscreen();
+      if (document.exitFullscreen) document.exitFullscreen()
+    	else if (document.webkitExitFullscreen) document.webkitExitFullscreen()
+    	else if (document.mozCancelFullScreen) document.mozCancelFullScreen()
+    	else if (document.msExitFullscreen) document.msExitFullscreen()
     }
   },
   mounted () {
-    document.addEventListener("fullscreenchange", this.updateFullscreenMode)
-    document.addEventListener("webkitfullscreenchange", this.updateFullscreenMode)
-    document.addEventListener("mozfullscreenchange", this.updateFullscreenMode)
-    document.addEventListener("MSFullscreenChange", this.updateFullscreenMode)
+    document.addEventListener('fullscreenchange', this.updateFullscreenMode)
+    document.addEventListener('webkitfullscreenchange', this.updateFullscreenMode)
+    document.addEventListener('mozfullscreenchange', this.updateFullscreenMode)
+    document.addEventListener('MSFullscreenChange', this.updateFullscreenMode)
   }
 
 }
-
 </script>

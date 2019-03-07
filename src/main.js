@@ -4,17 +4,17 @@ import VueAnalytics from 'vue-analytics'
 import BootstrapVue from 'bootstrap-vue'
 import App from './App'
 
-import { store } from './store';
+import { store } from './store'
 import { routes } from './routes'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPlayCircle, faPauseCircle, faPodcast, faChartBar, faInfoCircle, faChevronDown, faHeadphones, faTimes, faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons'
+import { faPlayCircle, faPauseCircle, faPodcast, faCamera, faChartBar, faInfoCircle, faChevronDown, faHeadphones, faTimes, faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons'
 import { faCommentDots, faListAlt } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add([ faPlayCircle, faPauseCircle, faPodcast, faCommentDots, faChartBar, faInfoCircle, faListAlt, faChevronDown, faHeadphones, faTimes, faLongArrowAltLeft ])
+library.add([ faPlayCircle, faPauseCircle, faPodcast, faCamera, faCommentDots, faChartBar, faInfoCircle, faListAlt, faChevronDown, faHeadphones, faTimes, faLongArrowAltLeft ])
 
-Vue.use(VueRouter);
-Vue.use(BootstrapVue);
+Vue.use(VueRouter)
+Vue.use(BootstrapVue)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false
 
@@ -30,11 +30,11 @@ const router = new VueRouter({
   //   }
   //   return {x: 0, y: 0};
   // }
-});
+})
 Vue.use(VueAnalytics, {
   id: 'UA-128757601-1',
   router
-});
+})
 
 new Vue({
   el: '#app',

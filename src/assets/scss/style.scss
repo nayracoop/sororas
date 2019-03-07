@@ -3,6 +3,7 @@ $font-family-titles: 'Xtreem Fat';
 $color-primary: #2c7b25;
 $color-primary-hover: #0d5407;
 $color-scondary: #d3a;
+//$color-background: #fff;
 $color-background: #100015;
 
 @font-face{
@@ -16,14 +17,17 @@ $color-background: #100015;
 
 body {
   font: 400 100%/1.375 'Open Sans', Arial, Helvetica, sans-serif !important;
-  color: #000 !important;
+  //color: #000 !important;
   background: $color-background !important;
+}
+p {
+  font-family: 'Raleway', sans-serif;
 }
 
 * { box-sizing: border-box; }
-
 .app .cover-header {
   height: calc(100vh - 3em - 15px);
+  //height: calc(100vh - 6vh)!important;
   width: 100vw;
   display: table-cell;
   vertical-align: middle;
@@ -31,9 +35,10 @@ body {
   // background-size: contain;
   // background-image: url($backgrounds-path + 'brush.svg'), url(https://somosmafia.com/wp/wp-content/uploads/2018/06/ni-unx-menxs-20-1920x1280.jpg);
   // background-size: contain, cover;
-  background: $color-background url($img-path + 'portada.jpg') no-repeat center center;
+  background: $color-background url($img-path + 'portada.jpg') no-repeat center bottom;
   background-size: cover;
   border-top: 15px solid $color-background;
+  position: relative;
 
   // &::after {
   //   content:"";
@@ -64,6 +69,7 @@ body {
     // border-top:15px solid $color-background;
     box-shadow: 0 -2px 10px rgba(0,0,0,.1);
     background: #fff;
+    box-shadow: 0 -5px 5px -5px #bbbc;
 
     ul {
       padding: 0;
@@ -93,7 +99,8 @@ body {
         // background-color: #fff;// $color-primary;
         // text-indent: -9999px;
         text-align: center;
-        color: $color-background;
+        //* color: $color-background;
+        color: #100015;
         text-transform: uppercase;
         text-decoration: none;
         // font-weight:700;
@@ -145,9 +152,14 @@ body {
     text-align: center;
     padding-right: 25px;
     margin-top:0.25em;
-
     background: transparent url($backgrounds-path + 'brush.svg') no-repeat center center;
     background-size: contain;
+    a {
+      color: inherit;
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 
   p {
@@ -157,6 +169,26 @@ body {
     text-align: center;
     margin:-0.5em 0 0;
   }
+  .pic-credit {
+    color: #fff;
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    border-radius: 3px;
+    padding: 2px 10px;
+    background: rgba(0,0,0,.35);
+    font-size: .875em;
+    &:hover {
+      background: rgba(0,0,0,.55);
+      text-decoration: none;
+    }
+    svg {
+      margin-right: 7px;
+    }
+    abbr {
+      text-decoration: none; 
+    }
+  }
 
 }
 
@@ -165,17 +197,20 @@ section header {
   h2 {
     font-weight: 700;
     text-transform: uppercase;
+    //color:#000;
     color:#fff;
     text-align: center;
     padding:0.125em 0;
     background: transparent url($backgrounds-path + 'brush-alt.svg') no-repeat center center;
     background-size: contain;
-    text-shadow: 0 4px 3px rgba(0,0,0,.35);
+    // text-shadow: 0 4px 3px rgba(0,0,0,.35);
   }
   p {
     font-size: 1.125em;
-    font-weight: 300;
+    //font-weight: 300;
+    font-weight: 400;
     text-align: center;
+    //color:#000;
     color:#fff;
   }
 }
@@ -194,10 +229,11 @@ section header {
     .label {
       font-size: 1.25em;
       font-weight: 700;
-      font-style: italic;
+      // font-style: italic;
       text-align: center;
       text-transform: uppercase;
       color: #fff;
+      // color: #000;
       margin-bottom: 1em;
     }
 
@@ -205,14 +241,31 @@ section header {
       margin-bottom: 1.5em;
       border: 0;
       border-radius: 0;
-      box-shadow: 0 5px 8px -5px rgba(0,0,0,.5);
+      //box-shadow: 0 5px 8px -5px rgba(0,0,0,.5);
+      box-shadow: 6px 5px 8px -5px rgba(0, 0, 0, 0.15);
+      .card-pic-credit {
+        color: #fff;
+        opacity: .75;
+        font-size: .775em;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 5;
+
+        .name {
+          font-style: italic;
+        }
+      }
       .card-body {
         padding-top: 0;
+        .description {
+          min-height: 120px;
+        }
       }
       .card-number {
         display: inline-block;
         font-size:2em;
-        font-style: italic;
+        // font-style: italic;
         font-weight: 900;
         letter-spacing: -0.0625em;
         background: transparent url($backgrounds-path + 'brush-alt.svg') no-repeat center center;
@@ -231,12 +284,13 @@ section header {
       .player {
         height: 320px;
         background-color: #eaeaea;
-        background-size: auto 420px;
+        background-size: auto cover;
         background-position: center center;
         // background-attachment: fixed;
-        // background-size: auto cover;
+        // background-size: auto 420px;
         position: relative;
         transform: translate3d(0,0,0);
+        cursor: pointer;
         .effect {
           position: absolute;
           font-size: 8em;
@@ -294,6 +348,9 @@ section header {
       &.paused .pause.effect {
         animation: playerEffect 400ms ease-out;
       }
+      &:hover {
+        box-shadow: 6px 5px 8px -5px rgba(0, 0, 0, 0.31);
+      }
     }
 
   }
@@ -315,10 +372,12 @@ section header {
       padding-top: 2em;
       padding-bottom: 3em;
       position: static;
+      //color: #000;
+      color: #fff;
       h2 {
         font-size: 1.25em;
         font-weight: 700;
-        font-style: italic;
+        // font-style: italic;
         text-align: center;
         text-transform: uppercase;
       }
@@ -333,8 +392,9 @@ section header {
       width: 10px;
       height: 10px;
       border-radius: 50%;
+      background: rgba(157, 155, 155, 0.5);
       &.active {
-        background-color: #50fc59;
+        background-color: #f0f;
       }
     }
   }
@@ -486,7 +546,7 @@ main {
         // float:left;
         overflow: hidden;
         padding: 0 10px;
-        margin: 6px 0;
+        margin: 6px auto;
         box-sizing: content-box;
 
         li {
@@ -571,15 +631,19 @@ main {
 
   article {
     margin:1em 0;
-
+    iframe {
+      background: #323d4d;
+    }
     .description {
       background: #ffd5d5;
       padding:1em 15px;
+      margin-top: -5px;
       b {
         display: block;
         font-size: 3em;
         float: left;
         margin: 0 30px 5px 0;
+        font-family: 'Roboto', sans-serif;
       }
     }
 
@@ -594,9 +658,11 @@ main {
   h3, h4 {
     font-size: 1.25em;
     font-weight: 700;
-    font-style: italic;
+    // font-style: italic;
     // text-align: center;
-    text-transform: uppercase;
+    // text-transform: uppercase;
+    font-family: 'Raleway', sans-serif;
+    // color: #000;
     color: #fff;
     margin-bottom: 0.5em;
   }
@@ -608,14 +674,21 @@ main {
   li {
     color:$color-scondary;
     font-size: 1em;
+      span {
+        // color: #000;
+        color: #fff;
+      }
   }
   a {
+    // color: #000;
     color: #fff;
+    text-decoration: underline;
     &:hover {
-      color: #50fc59;
+      color: #d3a;
     }
   }
   p {
+    //color: #000;
     color: #fff;
   }
 }
@@ -639,6 +712,9 @@ main {
     width: 1.5em;
     margin: 0;
   }
+  .controls {
+    cursor: pointer;
+  }
   .title {
     width: calc(100% - 3em);
     line-height: 1.5em;
@@ -656,3 +732,358 @@ main {
   // 10% { opacity: .25; }
   100% { opacity: 0; transform: scale(1); }
 }
+
+
+/* estilos desktop */
+
+@media only screen and (min-width: 769px) {
+  
+.app-header {
+  // margin-bottom: 1.5em;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  nav {
+    position: fixed;
+    top: 0;
+    bottom: unset;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    // border-top:15px solid $color-background;
+    box-shadow: 0 -2px 10px rgba(0,0,0,.1);
+    background: #fff;
+    box-shadow: 0 -5px 5px -5px #bbbc;
+
+    ul {
+      padding: 0;
+      margin: 0;
+      margin-right: 15px solid #fff;
+      margin-left: 15px solid #fff;
+    }
+
+    li {
+      display: inline-block;
+      width: 20%;
+      // border-right: 1px solid #eee;
+
+      &:last-child {
+        border: 0;
+      }
+      // transform: rotate(-4deg) translateY(-10px);
+      // border-right: 1px solid #fff;
+      // border-bottom: 3px solid #fff;
+      // border-radius: 6px;
+      overflow: hidden;
+      // &:nth-child(odd) { transform: rotate(2deg) translateY(-8px); }
+      a {
+        display: block;
+        // padding: 16px 0;
+        padding:0.75em 0 1.25em;
+        // background-color: #fff;// $color-primary;
+        // text-indent: -9999px;
+        text-align: center;
+        //* color: $color-background;
+        color: #100015;
+        text-transform: uppercase;
+        text-decoration: none;
+        // font-weight:700;
+        font-size:0.625em;
+        margin: 0;
+        transition: all 200ms ease-in-out;
+        &:not(.no-link):hover,
+        &.active {
+          background-color: #fafafa;
+          color: $color-scondary;
+        }
+        &.no-link.active {
+          background-color: $color-scondary;
+          color: #fafafa;
+        }
+        &:not(.active).news::after {
+          content:'';
+          display: block;
+          width:9px;
+          height:9px;
+          border-radius: 50%;
+          background-color: $color-scondary;
+          position: absolute;
+          top:50%;
+          left:50%;
+          margin-left: 4px;
+          margin-top: -2px;
+          // border:thin solid #333;
+        }
+        span {
+          display: block;
+          font-size: 2.5em;
+          // margin-bottom:0.125em;
+        }
+      }
+    }
+  }
+}
+
+#player {
+  position: fixed;
+  background: #fff;
+  bottom:-4em;
+  left: 0;
+  top: unset;
+  right: 0;
+  padding: 0.25em 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.1);
+  transition: bottom 300ms ease-in-out;
+  border-top: 3px solid fuchsia;
+  padding: 10px 55px;
+  z-index: 99;
+  &.visible {
+    bottom: 0;
+    top: unset;
+  }
+  .controls,
+  .title {
+    font-size: 1em;
+    float:left;
+    width: 1.5em;
+    margin: 0;
+  }
+  .controls {
+    cursor: pointer;
+  }
+  .title {
+    width: calc(100% - 3em);
+    line-height: 1.5em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .title + .controls {
+    text-align: right;
+  }
+  }
+  .stories {
+    .story-cards {
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      top:-9999px;
+      left:-9999px;
+      background: $color-background;
+      &.active {
+        position: static;
+        width: 100%;
+        height: 100%;
+      }
+      .next, .prev {
+        display: block;
+        position: absolute;
+        width: 35%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        background: #fff;
+        z-index: 10;
+        text-indent: -9999px;
+        opacity: 0;
+        transition: opacity 100ms ease-out;
+        // &:active {
+        //   opacity: 0.05;
+        //   transition-duration: 0s;
+        // }
+      }
+      .prev {
+        right: auto;
+        left: 0;
+      }
+      .back {
+        color: #fff;
+        display: inline-block;
+        width: 80px;
+        padding: 1em 0;
+        position: absolute;
+        bottom: 1em;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 11;
+        font-size: 0.875em;
+        opacity: 0.5;
+        transition: opacity 200ms ease-in-out;
+        &:hover {
+          opacity: 1;
+          text-decoration: none;
+        }
+      }
+      video {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .story-timelines {
+        position: absolute;
+        right: 8px;
+        top: 10px;
+        left: 8px;
+        overflow: hidden;
+        // box-shadow: 0 -3px 3px rgba(0,0,0,.15);
+  
+        .single-timeline {
+  
+          position: relative;
+          float: left;
+  
+          .progress {
+            position: relative;
+            background: rgba(255,255,255,.25);
+            height: 2px;
+            border-radius: 0;
+            margin:0 2px;
+  
+            .bar {
+              background: rgba(255,255,255,.75);
+              height: 100%;
+              width: 0%;
+              position: absolute;
+              top: 0;
+              left: 0;
+              bottom: 0;
+              // border-right:5px solid #fff;
+            }
+  
+          }
+  
+        }
+      }
+    }
+    .menu {
+      position: fixed;
+      bottom: 0;
+      left: unset;
+      right: -105px;
+      padding-top: 75px;
+      padding-bottom: 0;
+      border-bottom: 50px solid white;
+      padding-bottom: 0;
+      width: 105px;
+      height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background: #fafafa;
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fafafa+22,ffffff+100 */
+      background: rgb(250,250,250); /* Old browsers */
+      background: -moz-linear-gradient(45deg, rgba(250,250,250,1) 22%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(45deg, rgba(250,250,250,1) 22%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(45deg, rgba(250,250,250,1) 22%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+      border-top: 3px solid #fff;
+      padding-bottom: 3em;
+      box-shadow: 0 -2px 10px rgba(0,0,0,.1);
+  
+      // transition: transform 300ms ease-in, padding 450ms ease-in-out;
+      // transform: translateY(138px);
+      // padding-top:50px;
+      transition: right 300ms ease-in;
+  
+      &.opened {
+        // transform: none;
+        //bottom: 0;
+        right: -20px;
+        // padding-top:0;
+        transition-timing-function: ease-out;
+      }
+  
+      .slider-guide {
+        margin:0 -15px;
+        padding: 0;
+        // overflow: auto;
+        overflow: hidden;
+  
+        ul {
+          // float:left;
+          overflow: hidden;
+          padding: 0 10px;
+          margin: 6px auto;
+          box-sizing: content-box;
+  
+          li {
+            // width: 50px;
+            text-align: center;
+            /* text-transform: lowercase; */
+            font-size: 0.875em;
+            // position: relative;
+            list-style:none;
+            margin: 10px 5px;
+            float: none;
+  
+            .story {
+              width: 56px;
+              h3 {
+                font-size:0.75em;
+                margin:0.5em auto;
+              }
+  
+              .bubble {
+                position: relative;
+                width: 56px;
+                height: 56px;
+                border-radius: 50%;
+                background: #ddd;
+  
+                a {
+                  display: block;
+                  position: absolute;
+                  top: 1px;
+                  right: 1px;
+                  bottom: 1px;
+                  left: 1px;
+                  text-align: left;
+                  /* text-indent: -9999px; */
+                  border-radius: 50%;
+                  background: #fff;
+                  overflow: hidden;
+                  border:3px solid #fff;
+                  background: #eee;
+  
+                  text-indent: -9999px;
+                  // background-image: url("https://instagram.faep10-1.fna.fbcdn.net/vp/d8ff53021106d74a20e91da95100c243/5C6BF6B3/t51.2885-15/sh0.08/e35/s640x640/41763806_252181448813996_7997080599414090320_n.jpg");
+                  background-size: cover;
+                  box-shadow: 0px 6px 8px -2px rgba(0,0,0,.25);
+                }
+              }
+            }
+            &.active {
+              float: none;
+  
+              .bubble {
+                /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#50fc59+0,2c7b25+76 */
+                background: rgb(221,51,170); /* Old browsers */
+                background: -moz-linear-gradient(45deg, rgba(80,252,89,1) 0%, rgba(221,51,170,1) 76%); /* FF3.6-15 */
+                background: -webkit-linear-gradient(45deg, rgba(80,252,89,1) 0%,rgba(221,51,170,1) 76%); /* Chrome10-25,Safari5.1-6 */
+                background: linear-gradient(45deg, rgba(80,252,89,1) 0%,rgba(221,51,170,1) 76%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#50fc59', endColorstr='#50fc59',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  
+                a {
+                  top: 2px;
+                  right: 2px;
+                  bottom: 2px;
+                  left: 2px;
+                  border-width:1px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/* fin estilos desktop */

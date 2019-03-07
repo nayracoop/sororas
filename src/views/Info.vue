@@ -45,22 +45,22 @@
     <p><strong>Sororas es un documental web sobre la práctica del socorrismo realizado en el marco del Laboratorio I+DOC de la Maestría en Comunicación Digital Interactiva de la Universidad Nacional de Rosario.</strong></p>
     <h4>Realizadores</h4>
     <ul>
-      <li>Bergero Trpin, Tomás</li>
-      <li>Contreras, Esteban</li>
-      <li>Gagliardi, M. Victoria</li>
-      <li>Guerra, Ignacio</li>
-      <li>Silvera, Diego</li>
+      <li><span>Bergero Trpin, Tomás</span></li>
+      <li><span>Contreras, Esteban</span></li>
+      <li><span>Gagliardi, M. Victoria</span></li>
+      <li><span>Guerra, Ignacio</span></li>
+      <li><span>Silvera, Diego</span></li>
     </ul>
     <h4>Agradecimientos</h4>
     <ul>
-      <li>Ruth Zurbriggen
-      <li>Belén Grosso</li>
-      <li>Nadia Mamaní</li>
-      <li>Malena Van Mameren</li>
-      <li>Mariana Lucero</li>
-      <li>Agustina Ramón Michel</li>
-      <li>Eva Semino</li>
-      <li>Socorristas en Red (feministas que abortamos)</li>
+      <li><span>Ruth Zurbriggen</span></li>
+      <li><span>Belén Grosso</span></li>
+      <li><span>Nadia Mamaní</span></li>
+      <li><span>Malena Van Mameren</span></li>
+      <li><span>Mariana Lucero</span></li>
+      <li><span>Agustina Ramón Michel</span></li>
+      <li><span>Eva Semino</span></li>
+      <li><span>Socorristas en Red (feministas que abortamos)</span></li>
     </ul>
   </section>
 </template>
@@ -68,7 +68,7 @@
 <script>
 export default {
   beforeRouteEnter (to, from, next) {
-    if(from.name != null) {
+    if (from.name != null) {
       window.scrollTo({
         top: Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - 32,
         left: 0,

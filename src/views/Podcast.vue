@@ -14,10 +14,10 @@
 
 <script>
 import AppPodcastEpisode from '../components/PodcastEpisode'
-import { mapGetters } from 'vuex';
-import { mapActions } from 'vuex';
+import { mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
 // import { mapActions } from 'vuex';
-import * as types from '../store/types';
+import * as types from '../store/types'
 
 export default {
   components: {
@@ -25,7 +25,7 @@ export default {
   },
   data () {
     return {
-      scrollTop: 0,
+      scrollTop: 0
       // episodes: [
       //   { 'title': 'El aborto en Argentina' ,
       //     'description': 'Tipificación del código penal y excepciones, Protocolo ILE, datos estadísticos, tratamiento legislativo del Proyecto IVE.',
@@ -73,17 +73,17 @@ export default {
       updateCurrentEpisode: types.UPDATE_CURRENT_EPISODE
     }),
     handleScroll () {
-      this.scrollTop = window.scrollY;
+      this.scrollTop = window.scrollY
     }
   },
   created () {
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('scroll', this.handleScroll)
   },
   destroyed () {
-    window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('scroll', this.handleScroll)
   },
   beforeRouteEnter (to, from, next) {
-    if(from.name != null) {
+    if (from.name != null) {
       window.scrollTo({
         top: Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - 32,
         left: 0,
@@ -94,5 +94,4 @@ export default {
   }
 
 }
-
 </script>

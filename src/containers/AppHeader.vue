@@ -1,9 +1,10 @@
 <template>
   <header class="app-header">
-    <h1>Sororas</h1>
+    <h1><router-link to="podcast">Sororas</router-link></h1>
     <p>Voces sobre aborto y socorrismo</p>
-    <nav class="container">
-      <ul>
+    <a target="_blank" href="https://somosmafia.com/" class="pic-credit"><font-awesome-icon icon="camera" /><abbr title="Movimiento Argentino de Fotógrafxs Independientes Autoconvocadxs">M.A.f.I.A.</abbr></a>
+    <nav class="w-100">
+      <ul class="container m-auto">
         <li v-for="link in links">
           <a href="#" class="no-link" :class="{ active: opened, news:newStories }" v-if="link.action" @click.prevent="link.action">
             <span><font-awesome-icon :icon="link.icon" /></span>
@@ -20,33 +21,32 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import { mapMutations } from 'vuex';
-import * as types from '../store/types';
+import { mapGetters } from 'vuex'
+import { mapMutations } from 'vuex'
+import * as types from '../store/types'
 
 export default {
   data () {
     return {
       links: [
-          { path:'podcast', text:'Socorristas', colSize: 3, icon:'podcast' },
-          { path:'cards', text:'Dispositivo Socorrista', colSize: 3, icon:['far', 'list-alt'] },
-          { path:'stories', text:'Historias', colSize: 3, icon:['far', 'comment-dots'], action:this.toggleStories },
-          { path:'data', text:'Datos', colSize: 3, icon:'chart-bar'  },
-          { path:'info', text:'Información', colSize: 3, icon:'info-circle' },
+        { path: 'podcast', text: 'Socorristas', colSize: 3, icon: 'podcast' },
+        { path: 'cards', text: 'Dispositivo Socorrista', colSize: 3, icon: ['far', 'list-alt'] },
+        { path: 'stories', text: 'Historias', colSize: 3, icon: ['far', 'comment-dots'], action: this.toggleStories },
+        { path: 'data', text: 'Datos', colSize: 3, icon: 'chart-bar' },
+        { path: 'info', text: 'Información', colSize: 3, icon: 'info-circle' }
       ]
     }
   },
   computed: {
     ...mapGetters({
       opened: types.VISIBLE,
-      newStories: types.RELEASES,
+      newStories: types.RELEASES
     })
   },
   methods: {
     ...mapMutations({
-      toggleStories: types.TOGGLE_STORIES,
+      toggleStories: types.TOGGLE_STORIES
     })
   }
 }
-
 </script>

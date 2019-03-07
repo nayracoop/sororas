@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <b-container>
+    <b-container fluid>
       <div class="cover-header" ref="header">
         <app-header />
       </div>
@@ -19,12 +19,12 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters } from 'vuex'
 import AppHeader from './AppHeader'
 import AppFooter from './AppFooter'
 import AppStories from '../views/Stories'
 import AppPodcastPlayer from '../components/PodcastPlayer'
-import * as types from '../store/types';
+import * as types from '../store/types'
 
 export default {
   components: {
@@ -44,8 +44,7 @@ export default {
     })
   },
   mounted () {
-    this.$refs.header.style.height = (Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - 106) + 'px';
+    this.$refs.header.style.height = (Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - 106) + 'px'
   }
 }
-
 </script>

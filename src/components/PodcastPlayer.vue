@@ -1,20 +1,22 @@
 <template>
-  <div id="player" class="container" :class="{ visible:visible }">
-    <div class="controls">
-      <font-awesome-icon @click="play" v-if="paused" class="play" icon="play-circle" />
-      <font-awesome-icon @click="pause" v-else class="pause" icon="pause-circle" />
-    </div>
-    <p class="title"><b>#{{ currentEpisode }}</b> {{ title }}</p>
-    <div class="controls">
-      <font-awesome-icon @click="close" icon="times" />
+  <div id="player" :class="{ visible:visible }">
+    <div class="container">
+      <div class="controls">
+        <font-awesome-icon @click="play" v-if="paused" class="play" icon="play-circle" />
+        <font-awesome-icon @click="pause" v-else class="pause" icon="pause-circle" />
+      </div>
+      <p class="title"><b>#{{ currentEpisode }}</b> {{ title }}</p>
+      <div class="controls">
+        <font-awesome-icon @click="close" icon="times" />
+      </div>
     </div>
   </div>
 </template>
 <script>
-import { mapGetters } from 'vuex';
-import { mapActions } from 'vuex';
-import { mapMutations } from 'vuex';
-import * as types from '../store/types';
+import { mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
+import { mapMutations } from 'vuex'
+import * as types from '../store/types'
 
 export default {
   data () {
@@ -35,22 +37,22 @@ export default {
     //   else return !this.podcastEpisodes.find(el => { return el.id == this.currentEpisode }).audio.paused
     // },
     title () {
-      if(this.currentEpisode == 0 || this.podcastEpisodes === null) return ''
+      if (this.currentEpisode == 0 || this.podcastEpisodes === null) return ''
       return this.podcastEpisodes.find(el => { return el.id == this.currentEpisode }).title || ''
     }
   },
   watch: {
     currentEpisode (val, prev) {
       this.visible = val > 0
-      if(prev > 0) this.audios[prev-1].pause()
-      if(val > 0) {
-        this.currentAudio = this.audios[val-1]
+      if (prev > 0) this.audios[prev - 1].pause()
+      if (val > 0) {
+        this.currentAudio = this.audios[val - 1]
         this.currentAudio.play()
       }
     },
     paused (val) {
-      if(this.currentEpisode > 0) {
-        if(val) this.currentAudio.pause()
+      if (this.currentEpisode > 0) {
+        if (val) this.currentAudio.pause()
         else this.currentAudio.play()
       }
     }

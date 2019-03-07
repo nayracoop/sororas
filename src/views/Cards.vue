@@ -6,13 +6,15 @@
       <p>Este dispositivo tiene al menos cuatro momentos:</p>
     </header>
 
+    <div  @touchstart="onTouchStart" @touchmove="onTouchMove" @touchend="onTouchEnd">
+
+    
     <b-carousel id="cards"
 
               indicators
               :interval="4000"
               img-width="1024"
-              img-height="640"
-              v-model="slide"
+              img-height="640"         
     >
 
 
@@ -35,7 +37,7 @@
       </b-carousel-slide>
 
   </b-carousel>
-
+</div>
 
 </section>
 </template>
@@ -45,11 +47,21 @@
 export default {
   data () {
     return {
-      test: 'Hola home'
+      test: 'Hola home',
+      swipedir: 'none',
+      startX: null,
+      startY: null,
+      distX: null,
+      distY: null,
+      threshold: 150, // required min distance traveled to be considered swipe
+      restraint: 100, // maximum distance allowed at the same time in perpendicular direction
+      allowedTime: 300, // maximum time allowed to travel that distance
+      elapsedTime: null,
+      startTime: null
     }
   },
   beforeRouteEnter (to, from, next) {
-    if(from.name != null) {
+    if (from.name != null) {
       window.scrollTo({
         top: Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - 32,
         left: 0,
@@ -57,9 +69,38 @@ export default {
       })
     }
     next()
+  },
+  methods: {
+    onTouchStart (e) {
+      let touchobj = e.changedTouches[0]
+      this.swipedir = 'none'
+      this.dist = 0
+      this.startX = touchobj.pageX
+      this.startY = touchobj.pageY
+      this.startTime = new Date().getTime() // record time when finger first makes contact with surface
+      e.preventDefault()
+    },
+    onTouchMove (e) {
+      e.preventDefault()
+    },
+    onTouchEnd (e) {
+      let touchobj = e.changedTouches[0]
+      this.distX = touchobj.pageX - this.startX // get horizontal dist traveled by finger while in contact with surface
+      this.distY = touchobj.pageY - this.startY // get vertical dist traveled by finger while in contact with surface
+      this.elapsedTime = new Date().getTime() - this.startTime // get time elapsed
+      if (this.elapsedTime <= this.allowedTime) { // first condition for awipe met
+        if (Math.abs(this.distX) >= this.threshold && Math.abs(this.distY) <= this.restraint) { // 2nd condition for horizontal swipe met
+          this.swipedir = (this.distX < 0) ? 'left' : 'right' // if dist traveled is negative, it indicates left swipe
+        } else if (Math.abs(this.distY) >= this.threshold && Math.abs(this.distX) <= this.restraint) { // 2nd condition for vertical swipe met
+          this.swipedir = (this.distY < 0) ? 'up' : 'down' // if dist traveled is negative, it indicates up swipe
+        }
+      }
+      console.log(this.swipedir)
+      // handleswipe(this.swipedir)
+      e.preventDefault()
+    }
   }
 }
-
 </script>
 
 <style scoped>

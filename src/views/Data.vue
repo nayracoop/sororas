@@ -6,7 +6,7 @@
     <b-row>
       <b-col sm="12" md="6">
         <article>
-          <iframe id="datawrapper-chart-fCpJo" src="//datawrapper.dwcdn.net/fCpJo/3/" scrolling="no"frameborder="0" allowtransparency="true" style="width: 0; min-width: 100% !important;"height="400"></iframe>
+          <iframe id="datawrapper-chart-fCpJo" src="//datawrapper.dwcdn.net/fCpJo/3/" scrolling="no" frameborder="0" allowtransparency="true" style="width: 0; min-width: 100% !important;"height="400"></iframe>
           <div class="description">
             <p><b>81,9%</b> en cuatro años acompañaron a 12.081 mujeres en sus procesos de aborto medicamentoso de un total de 14.752 que las contactaron. En el 2017 asesoraron a 161 mujeres para que accedan a la Interrupción Legal del Embarazo en servicios de salud y velaron por el cumplimiento del Protocolo de atención.</p>
           </div>
@@ -81,11 +81,11 @@ export default {
       test: 'Hola data'
     }
   },
-  mounted() {
+  mounted () {
     // if("undefined"==typeof window.datawrapper)window.datawrapper={};window.datawrapper["fCpJo"]={},window.datawrapper["fCpJo"].embedDeltas={"100":400,"200":400,"300":400,"400":400,"500":400,"700":400,"800":400,"900":400,"1000":400},window.datawrapper["fCpJo"].iframe=document.getElementById("datawrapper-chart-fCpJo"),window.datawrapper["fCpJo"].iframe.style.height=window.datawrapper["fCpJo"].embedDeltas[Math.min(1e3,Math.max(100*Math.floor(window.datawrapper["fCpJo"].iframe.offsetWidth/100),100))]+"px",window.addEventListener("message",function(a){if("undefined"!=typeof a.data["datawrapper-height"])for(var b in a.data["datawrapper-height"])if("fCpJo"==b)window.datawrapper["fCpJo"].iframe.style.height=a.data["datawrapper-height"][b]+"px"});
   },
   beforeRouteEnter (to, from, next) {
-    if(from.name != null) {
+    if (from.name != null) {
       window.scrollTo({
         top: Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - 32,
         left: 0,
@@ -96,5 +96,4 @@ export default {
   }
 
 }
-
 </script>

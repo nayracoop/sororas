@@ -2,6 +2,7 @@
   <article class="episode">
     <p class="label">Episodio #{{ episode }}</p>
     <b-card ref="card" no-body>
+      <span class="card-pic-credit">Ilustración: <span class="name">Eva Semino</span></span>
         <div @click="toggleAudio" class="player" :style="'background-image: url(' + (episodeContent.img || cover) + '); ' + (parallax ? 'background-position:center ' + offset + 'px' : '')">
           <!-- <audio ref="audio" :src="(episodeContent.audio.src || src)" @timeupdate="timeUpdated" @loadedmetadata="timeUpdated" @ended="audioEnded"></audio> -->
           <font-awesome-icon class="effect play" icon="play-circle" />
@@ -27,8 +28,8 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import * as types from '../store/types';
+import { mapGetters } from 'vuex'
+import * as types from '../store/types'
 
 export default {
   data () {
@@ -57,7 +58,7 @@ export default {
       // return Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
     },
     time () {
-      if(this.episodeContent === null) return '00:00'
+      if (this.episodeContent === null) return '00:00'
       else {
         let duration = this.episodeContent.audio.duration - this.episodeContent.audio.currentTime
         let seconds = ('0' + Math.floor(duration % 60)).slice(-2)
@@ -69,7 +70,7 @@ export default {
       return this.episodeContent === null || this.episodeContent.audio.paused
     },
     progressBarWidth () {
-      if(this.episodeContent === null) return '0%'
+      if (this.episodeContent === null) return '0%'
       else return (this.episodeContent.audio.currentTime / this.episodeContent.audio.duration * 100) + '%'
     }
   },
@@ -80,7 +81,7 @@ export default {
   },
   watch: {
     paused (val) {
-      if(val) {
+      if (val) {
         this.$refs.card.classList.remove('playing')
         this.$refs.card.classList.add('paused')
         // this.audio.pause()
