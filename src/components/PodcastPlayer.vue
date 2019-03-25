@@ -1,6 +1,5 @@
 <template>
-  <div id="player" :class="{ visible:visible }">
-    <div class="container">
+  <div id="player" :class="{ visible:visible }" class="container-fluid">
       <div class="controls">
         <font-awesome-icon @click="play" v-if="paused" class="play" icon="play-circle" />
         <font-awesome-icon @click="pause" v-else class="pause" icon="pause-circle" />
@@ -9,7 +8,6 @@
       <div class="controls">
         <font-awesome-icon @click="close" icon="times" />
       </div>
-    </div>
   </div>
 </template>
 <script>
@@ -55,6 +53,10 @@ export default {
         if (val) this.currentAudio.pause()
         else this.currentAudio.play()
       }
+    },
+    visible (val) {
+      console.log(val)
+      this.$emit('opened', val)
     }
   },
   methods: {
@@ -70,6 +72,7 @@ export default {
     close () {
       this.updateCurrentEpisode(0)
       this.visible = false
+      // this.$emit('opened', false)
       // this.podcastEpisodes.find(el => { return el.audio.paused == false }).audio.paused = true
     },
     timeUpdated () {
@@ -93,7 +96,7 @@ export default {
       let audio = new Audio(episode.audio.src)
       audio.addEventListener('ended', this.audioEnded)
       audio.addEventListener('timeupdate', this.timeUpdated)
-      episode.el = audio
+      episode.audio.el = audio
       return audio
     })
   }

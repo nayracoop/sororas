@@ -76,16 +76,16 @@ export default {
   },
   methods: {
     toggleAudio () {
-      if (!this.episodeContent.audio.paused)
-        {this.episodeContent.audio.el.pause()}
-      else
-        {this.episodeContent.audio.el.play()}
+      if (!this.episodeContent.audio.paused) {
+        this.episodeContent.audio.el.pause()
+      } else {
+        this.episodeContent.audio.el.play()
+      }
       this.episodeContent.audio.paused = !this.episodeContent.audio.paused
     }
   },
   watch: {
     paused (val) {
-      console.log(this.episodeContent)
       if (val) {
         this.$refs.card.classList.remove('playing')
         this.$refs.card.classList.add('paused')
@@ -100,7 +100,7 @@ export default {
     }
   },
   beforeMount () {
-    this.episodeContent = this.podcastEpisodes.find(el => { return el.id == this.episode })
+    this.episodeContent = this.podcastEpisodes.find(el => { return el.id === this.episode })
   },
   mounted () {
     this.cardTop = this.$refs.card.getBoundingClientRect().top + window.scrollY

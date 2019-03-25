@@ -10,11 +10,10 @@
 
     
     <b-carousel id="cards"
-
-              indicators
-              :interval="4000"
-              img-width="1024"
-              img-height="640"         
+      indicators
+      :interval="4000"
+      img-width="1024"
+      img-height="640"         
     >
 
 

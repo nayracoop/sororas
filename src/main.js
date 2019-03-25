@@ -7,11 +7,11 @@ import App from './App'
 import { store } from './store'
 import { routes } from './routes'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPlayCircle, faPauseCircle, faPodcast, faCamera, faChartBar, faInfoCircle, faChevronDown, faHeadphones, faTimes, faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons'
+import { faPlayCircle, faPauseCircle, faPodcast, faBars, faTimes, faCamera, faChartBar, faInfoCircle, faChevronDown, faHeadphones, faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons'
 import { faCommentDots, faListAlt } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add([ faPlayCircle, faPauseCircle, faPodcast, faCamera, faCommentDots, faChartBar, faInfoCircle, faListAlt, faChevronDown, faHeadphones, faTimes, faLongArrowAltLeft ])
+library.add([ faPlayCircle, faPauseCircle, faPodcast, faBars, faCamera, faCommentDots, faChartBar, faInfoCircle, faListAlt, faChevronDown, faHeadphones, faTimes, faLongArrowAltLeft ])
 
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
