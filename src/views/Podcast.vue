@@ -1,4 +1,5 @@
 <template>
+<b-container>
   <section class="podcast">
     <header>
       <h2>Socorristas</h2>
@@ -10,6 +11,7 @@
       </b-col>
     </b-row>
   </section>
+</b-container>
 </template>
 
 <script>

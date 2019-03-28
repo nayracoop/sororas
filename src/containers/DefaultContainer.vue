@@ -5,7 +5,7 @@
         <app-header ref="headerMenu" />
       </div>
     </b-container>
-    <b-container class="app-body">
+    <b-container fluid class="app-body">
       <main :class="{ 'menu-opened':storyMenuOpened }">
         <router-view></router-view>
         <app-stories ref="stories" />

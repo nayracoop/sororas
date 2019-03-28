@@ -5,1262 +5,1401 @@ $color-scondary: #d3a;
 $color-background: #100015;
 
 @font-face {
-  font-family: 'Xtreem Fat';
-  src: url($font-path + 'xtreemfat.woff2') format('woff2'), url($font-path + 'xtreemfat.woff') format('woff');
-  font-style: normal;
-  font-weight: normal;
-  text-rendering: optimizeLegibility;
+    font-family: 'Xtreem Fat';
+    src: url($font-path + 'xtreemfat.woff2') format('woff2'), url($font-path + 'xtreemfat.woff') format('woff');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
 }
 
 body {
-  font: 400 100%/1.375 'Open Sans', Arial, Helvetica, sans-serif !important;
-  background: $color-background !important;
+    font: 400 100%/1.375 'Open Sans', Arial, Helvetica, sans-serif !important;
+    background: $color-background !important;
 }
 
 p {
-  font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .app .cover-header {
-  height: calc(100vh - 3em - 15px);
-  width: 100vw;
-  display: table-cell;
-  vertical-align: middle;
-  background: $color-background url($img-path + 'portada.jpg') no-repeat center bottom;
-  background-size: cover;
-  border-top: 15px solid $color-background;
-  position: relative;
+    height: calc(100vh - 3em - 15px);
+    width: 100vw;
+    display: table-cell;
+    vertical-align: middle;
+    background: $color-background url($img-path + 'portada.jpg') no-repeat center bottom;
+    background-size: cover;
+    border-top: 15px solid $color-background;
+    position: relative;
 }
 
 .app-header {
-  padding-top: 15px;
-  padding-bottom: 15px;
-
-  nav {
-    position: fixed;
-    bottom: -10px;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, .1);
-    background: #fff;
-    box-shadow: 0 -5px 5px -5px #bbbc;
-
-    ul {
-      padding: 0;
-      margin: 0;
-      margin-right: 15px solid #fff;
-      margin-left: 15px solid #fff;
-    }
-
-    li {
-      display: inline-block;
-      width: 20%;
-
-      &:last-child {
-        border: 0;
-      }
-
-      overflow: hidden;
-
-      a {
-        display: block;
-        padding: 0.75em 0 1.25em;
-        text-align: center;
-        color: #100015;
-        text-transform: uppercase;
-        text-decoration: none;
-        font-size: 0.625em;
-        margin: 0;
-        transition: all 200ms ease-in-out;
-
-        &:not(.no-link):hover,
-        &.active {
-          background-color: #fafafa;
-          color: $color-scondary;
-        }
-
-        &.no-link.active {
-          background-color: $color-scondary;
-          color: #fafafa;
-        }
-
-        &:not(.active).news::after {
-          content: '';
-          display: block;
-          width: 9px;
-          height: 9px;
-          border-radius: 50%;
-          background-color: $color-scondary;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          margin-left: 4px;
-          margin-top: -2px;
-        }
-
-        span {
-          display: block;
-          font-size: 2.5em;
-        }
-      }
-    }
-  }
-
-  h1,
-  p {
-    color: #fff;
-    text-shadow: 0 4px 3px rgba(0, 0, 0, .35);
-  }
-
-  h1 {
-    font-family: $font-family-titles;
-    font-size: 7em;
-    margin: 0;
-    line-height: 1;
-    text-align: center;
-    padding-right: 25px;
-    margin-top: 0.25em;
-    background: transparent url($backgrounds-path + 'brush.svg') no-repeat center center;
-    background-size: contain;
-
-    a {
-      color: inherit;
-
-      &:hover {
-        text-decoration: none;
-      }
-    }
-  }
-
-  p {
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.875em;
-    text-align: center;
-    margin: -0.5em 0 0;
-  }
-
-  .pic-credit {
-    color: #fff;
-    position: absolute;
-    right: 40px;
-    bottom: 5%;
-    border-radius: 3px;
-    padding: 2px 10px;
-    background: rgba(0, 0, 0, .35);
-    font-size: .875em;
-
-    &:hover {
-      background: rgba(0, 0, 0, .55);
-      text-decoration: none;
-    }
-
-    svg {
-      margin-right: 7px;
-    }
-
-    abbr {
-      text-decoration: none;
-    }
-  }
-
-  .toggle-menu,
-  .close-btn {
-    display: none;
-  }
-}
-
-section header {
-  margin: 5em auto;
-
-  h2 {
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #fff;
-    text-align: center;
-    padding: 0.125em 0;
-    background: transparent url($backgrounds-path + 'brush-alt.svg') no-repeat center center;
-    background-size: contain;
-  }
-
-  p {
-    font-size: 1.125em;
-    font-weight: 400;
-    text-align: center;
-    color: #fff;
-  }
-}
-
-.podcast {
-  .episode {
-    margin-bottom: 3em;
-
-    .label {
-      font-size: 1.25em;
-      font-weight: 700;
-      text-align: center;
-      text-transform: uppercase;
-      color: #fff;
-      margin-bottom: 1em;
-    }
-
-    .card {
-      margin-bottom: 1.5em;
-      border: 0;
-      border-radius: 0;
-      box-shadow: 6px 5px 8px -5px rgba(0, 0, 0, 0.15);
-
-      .card-pic-credit {
-        color: #fff;
-        opacity: .75;
-        font-size: .775em;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        z-index: 4;
-
-        .name {
-          font-style: italic;
-        }
-      }
-
-      .card-body {
-        padding-top: 0;
-
-        .description {
-          min-height: 120px;
-        }
-      }
-
-      .card-number {
-        display: inline-block;
-        font-size: 2em;
-        font-weight: 900;
-        letter-spacing: -0.0625em;
-        background: transparent url($backgrounds-path + 'brush-alt.svg') no-repeat center center;
-        background-size: 100% 100%;
-        padding: 5px 15px;
-        margin-left: -10px;
-        margin-bottom: 0;
-        position: relative;
-        top: 5px;
-      }
-
-      h3 {
-        font-size: 1.375em;
-      }
-
-      .player {
-        height: 320px;
-        background-color: #eaeaea;
-        background-size: auto cover;
-        background-position: center center;
-        position: relative;
-        transform: translate3d(0, 0, 0);
-        cursor: pointer;
-
-        .effect {
-          position: absolute;
-          font-size: 8em;
-          color: #fff;
-          opacity: 0;
-          left: 0;
-          right: 0;
-          margin: -0.5em auto 0;
-          top: 50%;
-        }
-
-        .controls {
-          position: absolute;
-          right: 0;
-          bottom: 0;
-          left: 0;
-
-          .btn,
-          time {
-            color: #fff;
-            font-size: 2.5em;
-          }
-
-          time {
-            font-size: 1.25em;
-          }
-        }
-
-        .progress {
-          position: absolute;
-          right: 15px;
-          bottom: 22px;
-          left: 5.875em;
-          right: 0;
-          left: 0;
-          bottom: 0;
-          background: rgba(255, 255, 255, .25);
-          height: 6px;
-          border-radius: 0;
-
-          .bar {
-            background: rgba(255, 255, 255, .75);
-            height: 100%;
-            width: 0%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-          }
-        }
-      }
-
-      &.playing .play.effect,
-      &.paused .pause.effect {
-        animation: playerEffect 400ms ease-out;
-      }
-
-      &:hover {
-        box-shadow: 6px 5px 8px -5px rgba(0, 0, 0, 0.31);
-      }
-    }
-  }
-}
-
-.cards {
-  padding-bottom: 3em;
-
-  .carousel-inner {
-    max-width: 680px;
-    margin: 0 auto;
-  }
-
-  .carousel-item {
-    img {
-      display: none !important;
-    }
-
-    .carousel-caption {
-      padding-top: 2em;
-      padding-bottom: 3em;
-      position: static;
-      color: #fff;
-
-      h2 {
-        font-size: 1.25em;
-        font-weight: 700;
-        text-align: center;
-        text-transform: uppercase;
-      }
-    }
-  }
-
-  .carousel-indicators {
-    bottom: auto;
-    top: 0;
-    z-index: 10;
-
-    li {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: rgba(157, 155, 155, 0.5);
-
-      &.active {
-        background-color: #f0f;
-      }
-    }
-  }
-}
-
-main {
-  transition: padding 300ms ease-in-out;
-
-  &.menu-opened {
-    padding-bottom: 100px;
-  }
-}
-
-.stories {
-  .story-cards {
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-    background: $color-background;
-
-    &.active {
-      position: static;
-      width: 100%;
-      height: 100%;
-    }
-
-    .next,
-    .prev {
-      display: block;
-      position: absolute;
-      width: 35%;
-      height: 100%;
-      top: 0;
-      right: 0;
-      background: #fff;
-      z-index: 10;
-      text-indent: -9999px;
-      opacity: 0;
-      transition: opacity 100ms ease-out;
-    }
-
-    .prev {
-      right: auto;
-      left: 0;
-    }
-
-    .back {
-      color: #fff;
-      display: inline-block;
-      width: 80px;
-      padding: 1em 0;
-      position: absolute;
-      bottom: 1em;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-      z-index: 11;
-      font-size: 0.875em;
-      opacity: 0.5;
-      transition: opacity 200ms ease-in-out;
-
-      &:hover {
-        opacity: 1;
-        text-decoration: none;
-      }
-    }
-
-    video {
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .story-timelines {
-      position: absolute;
-      right: 8px;
-      top: 10px;
-      left: 8px;
-      overflow: hidden;
-
-      .single-timeline {
-        position: relative;
-        float: left;
-
-        .progress {
-          position: relative;
-          background: rgba(255, 255, 255, .25);
-          height: 2px;
-          border-radius: 0;
-          margin: 0 2px;
-
-          .bar {
-            background: rgba(255, 255, 255, .75);
-            height: 100%;
-            width: 0%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-          }
-        }
-      }
-    }
-  }
-
-  .menu {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #fafafa;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fafafa+22,ffffff+100 */
-    background: rgb(250, 250, 250);
-    /* Old browsers */
-    background: -moz-linear-gradient(45deg, rgba(250, 250, 250, 1) 22%, rgba(255, 255, 255, 1) 100%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(45deg, rgba(250, 250, 250, 1) 22%, rgba(255, 255, 255, 1) 100%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(45deg, rgba(250, 250, 250, 1) 22%, rgba(255, 255, 255, 1) 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#ffffff', GradientType=1);
-    border-top: 3px solid #fff;
-    padding-bottom: 3em;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, .1);
-    transition: bottom 300ms ease-in;
-    bottom: -140px;
-    z-index: 5;
-
-    &.opened {
-      bottom: 0;
-      transition-timing-function: ease-out;
-    }
-
-    .slider-guide {
-      margin: 0 -15px;
-      padding: 0;
-      overflow: auto;
-
-      ul {
-        overflow: hidden;
-        padding: 0 10px;
-        margin: 6px auto;
-        box-sizing: content-box;
-
-        li {
-          text-align: center;
-          font-size: 0.875em;
-          list-style: none;
-          margin: 0 5px;
-          float: right;
-
-          .story {
-            width: 56px;
-
-            h3 {
-              font-size: 0.75em;
-              margin: 0.5em auto;
-            }
-
-            .bubble {
-              position: relative;
-              width: 56px;
-              height: 56px;
-              border-radius: 50%;
-              background: #ddd;
-
-              a {
-                display: block;
-                position: absolute;
-                top: 1px;
-                right: 1px;
-                bottom: 1px;
-                left: 1px;
-                text-align: left;
-                border-radius: 50%;
-                background: #fff;
-                overflow: hidden;
-                border: 3px solid #fff;
-                background: #eee;
-                text-indent: -9999px;
-                background-size: cover;
-                box-shadow: 0px 6px 8px -2px rgba(0, 0, 0, .25);
-              }
-            }
-          }
-
-          &.active {
-            float: left;
-
-            .bubble {
-              /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#50fc59+0,2c7b25+76 */
-              background: rgb(221, 51, 170);
-              /* Old browsers */
-              background: -moz-linear-gradient(45deg, rgba(80, 252, 89, 1) 0%, rgba(221, 51, 170, 1) 76%);
-              /* FF3.6-15 */
-              background: -webkit-linear-gradient(45deg, rgba(80, 252, 89, 1) 0%, rgba(221, 51, 170, 1) 76%);
-              /* Chrome10-25,Safari5.1-6 */
-              background: linear-gradient(45deg, rgba(80, 252, 89, 1) 0%, rgba(221, 51, 170, 1) 76%);
-              /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-              filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#50fc59', endColorstr='#50fc59', GradientType=1);
-              /* IE6-9 fallback on horizontal gradient */
-              a {
-                top: 2px;
-                right: 2px;
-                bottom: 2px;
-                left: 2px;
-                border-width: 1px;
-              }
-            }
-          }
-        }
-      }
-
-      .stories-btn {
-        display: none;
-      }
-    }
-  }
-}
-
-.data {
-  padding-bottom: 3em;
-
-  article {
-    margin: 1em 0;
-
-    iframe {
-      background: #323d4d;
-    }
-
-    .description {
-      background: #ffd5d5;
-      padding: 1em 15px;
-      margin-top: -5px;
-
-      b {
-        display: block;
-        font-size: 3em;
-        float: left;
-        margin: 0 30px 5px 0;
-        font-family: 'Roboto', sans-serif;
-      }
-    }
-  }
-}
-
-.info {
-  padding-bottom: 3em;
-
-  h3:not(:first-of-type) {
-    margin-top: 2em;
-  }
-
-  h3,
-  h4 {
-    font-size: 1.25em;
-    font-weight: 700;
-    font-family: 'Raleway', sans-serif;
-    color: #fff;
-    margin-bottom: 0.5em;
-  }
-
-  h4 {
-    font-style: normal;
-    font-size: 1em;
-    text-transform: none;
-  }
-
-  li {
-    color: $color-scondary;
-    font-size: 1em;
-
-    span {
-      color: #fff;
-    }
-  }
-
-  a {
-    color: #fff;
-    text-decoration: underline;
-
-    &:hover {
-      color: #d3a;
-    }
-  }
-
-  p {
-    color: #fff;
-  }
-}
-
-#player {
-  position: fixed;
-  background: #fff;
-  top: -2em;
-  left: 0;
-  right: 0;
-  padding: 0.25em 15px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
-  transition: top 300ms ease-in-out;
-
-  &.visible {
-    top: 0;
-  }
-
-  .controls,
-  .title {
-    font-size: 1em;
-    float: left;
-    width: 1.5em;
-    margin: 0;
-  }
-
-  .controls {
-    cursor: pointer;
-  }
-
-  .title {
-    width: calc(100% - 3em);
-    line-height: 1.5em;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-
-  .title+.controls {
-    text-align: right;
-  }
-}
-
-@keyframes playerEffect {
-  0% {
-    opacity: .75;
-    transform: scale(0.5);
-  }
-
-  100% {
-    opacity: 0;
-    transform: scale(1);
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .stories .menu {
-    padding-bottom: 3em!important;
-  }
-}
-
-/* estilos desktop */
-
-@media only screen and (min-width: 769px) {
-  .app-header {
     padding-top: 15px;
     padding-bottom: 15px;
 
-    .toggle-menu {
-      display: flex;
-      align-items: center;
-      background: #100015;
-      color: #fff;
-      font-size: 1.225em;
-      text-transform: uppercase;
-      padding: 5px 15px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      position: fixed;
-      right: 55px;
-      top: 30px;
-      transition: all .2s ease-in-out;
-      border-radius: 0;
-      border-style: unset;
+    nav {
+        position: fixed;
+        bottom: -10px;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, .1);
+        background: #fff;
+        box-shadow: 0 -5px 5px -5px #bbbc;
 
-      svg {
-        margin-right: 8px;
-        height: 28px;
-      }
+        ul {
+            padding: 0;
+            margin: 0;
+            margin-right: 15px solid #fff;
+            margin-left: 15px solid #fff;
+        }
 
-      &:hover,
-      &:focus,
-      &:active {
-        box-shadow: none;
-        text-decoration: none;
-        background: #e9e9e9 !important;
-        color: #d3a !important;
-      }
+        li {
+            display: inline-block;
+            width: 20%;
 
-      z-index: 99;
+            &:last-child {
+                border: 0;
+            }
+
+            overflow: hidden;
+
+            a {
+                display: block;
+                padding: 0.75em 0 1.25em;
+                text-align: center;
+                color: #100015;
+                text-transform: uppercase;
+                text-decoration: none;
+                font-size: 0.625em;
+                margin: 0;
+                transition: all 200ms ease-in-out;
+
+                &:not(.no-link):hover,
+                &.active {
+                    background-color: #fafafa;
+                    color: $color-scondary;
+                }
+
+                &.no-link.active {
+                    background-color: $color-scondary;
+                    color: #fafafa;
+                }
+
+                &:not(.active).news::after {
+                    content: '';
+                    display: block;
+                    width: 9px;
+                    height: 9px;
+                    border-radius: 50%;
+                    background-color: $color-scondary;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    margin-left: 4px;
+                    margin-top: -2px;
+                }
+
+                span {
+                    display: block;
+                    font-size: 2.5em;
+                }
+            }
+        }
     }
 
-    nav {
-      position: fixed;
-      top: 0;
-      bottom: unset;
-      right: 0;
-      left: unset;
-      height: 100vh;
-      width: 260px !important;
-      z-index: 100;
-      padding-top: 70px;
-      box-shadow: 0 -2px 10px rgba(0, 0, 0, .1);
-      background: #fff;
-      box-shadow: 0 -5px 5px -5px #bbbc;
-      transition: .25s ease-in-out all;
+    h1,
+    p {
+        color: #fff;
+        text-shadow: 0 4px 3px rgba(0, 0, 0, .35);
+    }
 
-      ul {
-        padding: 0;
+    h1 {
+        font-family: $font-family-titles;
+        font-size: 7em;
         margin: 0;
-        margin-right: 15px solid #fff;
-        margin-left: 15px solid #fff;
-      }
-
-      li {
-        display: block;
-        width: auto;
-        border-bottom: 1px solid #f3f3f3;
-        overflow: hidden;
-
-        &:first-of-type {
-          border-top: 1px solid #f3f3f3;
-        }
-
-        &:last-child {
-          border-bottom: 1px solid #f3f3f3;
-        }
-
-        &:nth-of-type(3) {
-          display: none;
-          position: fixed;
-          bottom: 142px;
-          left: 55px;
-          z-index: 9998;
-          background: white;
-
-          a {
-            width: 65px;
-            height: 65px;
-            padding: 10px 0;
-            text-align: center;
-          }
-
-          span.sr-only {
-            display: none;
-          }
-
-          &.active {
-            background: #d3a;
-          }
-        }
+        line-height: 1;
+        text-align: center;
+        padding-right: 25px;
+        margin-top: 0.25em;
+        background: transparent url($backgrounds-path + 'brush.svg') no-repeat center center;
+        background-size: contain;
 
         a {
-          display: block;
-          padding: 0.75em 0 1.25em 1.925em;
-          text-align: left;
-          color: #100015;
-          text-transform: none;
-          text-decoration: none;
-          font-size: 0.625em;
-          margin: 0;
-          transition: all 200ms ease-in-out;
+            color: inherit;
 
-          &:not(.no-link):hover,
-          &.active {
-            background-color: #fafafa;
-            color: $color-scondary;
-          }
-
-          &.no-link.active {
-            background-color: $color-scondary;
-            color: #fafafa;
-          }
-
-          &:not(.active).news::after {
-            content: none;
-          }
-          
-          &.news span:not(.sr-only)::after {
-            content: '';
-            display: block;
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            background-color: $color-scondary;
-            position: absolute;
-            top: 42%;
-            left: 50.25%;
-            margin-left: 4px;
-            margin-top: -2px;
-          }
-
-          span {
-            display: inline-block;
-            font-size: 2.5em;
-          }
-
-          span.sr-only {
-            position: relative;
-            width: auto;
-            height: auto;
-            overflow: visible;
-            font-size: 1rem;            
-            padding-top: 0;
-            padding-left: 10px;
-            display: inline-block;
-          }
-
-          &:hover {
-            background: #e9e9e9 !important;
-          }
+            &:hover {
+                text-decoration: none;
+            }
         }
-      }
+    }
 
-      .close-btn {
+    p {
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.875em;
+        text-align: center;
+        margin: -0.5em 0 0;
+    }
+
+    .pic-credit {
+        color: #fff;
         position: absolute;
-        font-size: 1.225em;
-        padding: 5px 15px;
-        right: 10px;
-        top: 10px;
-        background: transparent;
-        display: flex;
+        right: 40px;
+        bottom: 5%;
+        border-radius: 3px;
+        padding: 2px 10px;
+        background: rgba(0, 0, 0, .35);
+        font-size: .875em;
 
-        &:hover,
-        &:active,
-        &:focus {
-          background: #e9e9e9 !important;
-          border-style: none;
-          border: 0px;
-
-          svg path {
-            fill: #d3a !important;
-          }
+        &:hover {
+            background: rgba(0, 0, 0, .55);
+            text-decoration: none;
         }
 
         svg {
-          margin-right: 0;
-
-          path {
-            fill: #000 !important;
-          }
+            margin-right: 7px;
         }
-      }
+
+        abbr {
+            text-decoration: none;
+        }
     }
-  }
 
-  nav.active {
-    right: -360px !important;
-    transition-delay: 150ms;
-  }
+    .toggle-menu,
+    .close-btn {
+        display: none;
+    }
+}
 
-  #player {
+section header {
+    margin: 5em auto;
+
+    h2 {
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #fff;
+        text-align: center;
+        padding: 0.125em 0;
+        background: transparent url($backgrounds-path + 'brush-alt.svg') no-repeat center center;
+        background-size: contain;
+    }
+
+    p {
+        font-size: 1.125em;
+        font-weight: 400;
+        text-align: center;
+        color: #fff;
+    }
+}
+
+.podcast {
+    .episode {
+        margin-bottom: 3em;
+
+        .label {
+            font-size: 1.25em;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 1em;
+        }
+
+        .card {
+            margin-bottom: 1.5em;
+            border: 0;
+            border-radius: 0;
+            box-shadow: 6px 5px 8px -5px rgba(0, 0, 0, 0.15);
+
+            .card-pic-credit {
+                color: #fff;
+                opacity: .75;
+                font-size: .775em;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                z-index: 4;
+
+                .name {
+                    font-style: italic;
+                }
+            }
+
+            .card-body {
+                padding-top: 0;
+
+                .description {
+                    min-height: 120px;
+                }
+            }
+
+            .card-number {
+                display: inline-block;
+                font-size: 2em;
+                font-weight: 900;
+                letter-spacing: -0.0625em;
+                background: transparent url($backgrounds-path + 'brush-alt.svg') no-repeat center center;
+                background-size: 100% 100%;
+                padding: 5px 15px;
+                margin-left: -10px;
+                margin-bottom: 0;
+                position: relative;
+                top: 5px;
+            }
+
+            h3 {
+                font-size: 1.375em;
+            }
+
+            .player {
+                height: 320px;
+                background-color: #eaeaea;
+                background-size: auto cover;
+                background-position: center center;
+                position: relative;
+                transform: translate3d(0, 0, 0);
+                cursor: pointer;
+
+                .effect {
+                    position: absolute;
+                    font-size: 8em;
+                    color: #fff;
+                    opacity: 0;
+                    left: 0;
+                    right: 0;
+                    margin: -0.5em auto 0;
+                    top: 50%;
+                }
+
+                .controls {
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+
+                    .btn,
+                    time {
+                        color: #fff;
+                        font-size: 2.5em;
+                    }
+
+                    time {
+                        font-size: 1.25em;
+                    }
+                }
+
+                .progress {
+                    position: absolute;
+                    right: 15px;
+                    bottom: 22px;
+                    left: 5.875em;
+                    right: 0;
+                    left: 0;
+                    bottom: 0;
+                    background: rgba(255, 255, 255, .25);
+                    height: 6px;
+                    border-radius: 0;
+
+                    .bar {
+                        background: rgba(255, 255, 255, .75);
+                        height: 100%;
+                        width: 0%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        bottom: 0;
+                    }
+                }
+            }
+
+            &.playing .play.effect,
+            &.paused .pause.effect {
+                animation: playerEffect 400ms ease-out;
+            }
+
+            &:hover {
+                box-shadow: 6px 5px 8px -5px rgba(0, 0, 0, 0.31);
+            }
+        }
+    }
+}
+
+.cards {
+    padding-bottom: 3em;
+
+    .carousel-inner {
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    .carousel-item {
+        img {
+            display: none !important;
+        }
+
+        .carousel-caption {
+            padding-top: 2em;
+            padding-bottom: 3em;
+            position: static;
+            color: #fff;
+
+            h2 {
+                font-size: 1.25em;
+                font-weight: 700;
+                text-align: center;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .carousel-indicators {
+        bottom: auto;
+        top: 0;
+        z-index: 10;
+
+        li {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(157, 155, 155, 0.5);
+
+            &.active {
+                background-color: #f0f;
+            }
+        }
+    }
+}
+
+main {
+    transition: padding 300ms ease-in-out;
+
+    &.menu-opened {
+        padding-bottom: 100px;
+    }
+}
+
+.stories {
+    .story-cards {
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+        background: $color-background;
+
+        &.active {
+            position: static;
+            width: 100%;
+            height: 100%;
+        }
+
+        .next,
+        .prev {
+            display: block;
+            position: absolute;
+            width: 35%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            background: #fff;
+            z-index: 10;
+            text-indent: -9999px;
+            opacity: 0;
+            transition: opacity 100ms ease-out;
+        }
+
+        .prev {
+            right: auto;
+            left: 0;
+        }
+
+        .back {
+            color: #fff;
+            display: inline-block;
+            width: 80px;
+            padding: 1em 0;
+            position: absolute;
+            bottom: 1em;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            z-index: 11;
+            font-size: 0.875em;
+            opacity: 0.5;
+            transition: opacity 200ms ease-in-out;
+
+            &:hover {
+                opacity: 1;
+                text-decoration: none;
+            }
+        }
+
+        video {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .story-timelines {
+            position: absolute;
+            right: 8px;
+            top: 10px;
+            left: 8px;
+            overflow: hidden;
+
+            .single-timeline {
+                position: relative;
+                float: left;
+
+                .progress {
+                    position: relative;
+                    background: rgba(255, 255, 255, .25);
+                    height: 2px;
+                    border-radius: 0;
+                    margin: 0 2px;
+
+                    .bar {
+                        background: rgba(255, 255, 255, .75);
+                        height: 100%;
+                        width: 0%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .menu {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #fafafa;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fafafa+22,ffffff+100 */
+        background: rgb(250, 250, 250);
+        /* Old browsers */
+        background: -moz-linear-gradient(45deg, rgba(250, 250, 250, 1) 22%, rgba(255, 255, 255, 1) 100%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(45deg, rgba(250, 250, 250, 1) 22%, rgba(255, 255, 255, 1) 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(45deg, rgba(250, 250, 250, 1) 22%, rgba(255, 255, 255, 1) 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#ffffff', GradientType=1);
+        border-top: 3px solid #fff;
+        padding-bottom: 3em;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, .1);
+        transition: bottom 300ms ease-in;
+        bottom: -140px;
+        z-index: 5;
+
+        &.opened {
+            bottom: 0;
+            transition-timing-function: ease-out;
+        }
+
+        .slider-guide {
+            margin: 0 -15px;
+            padding: 0;
+            overflow: auto;
+
+            ul {
+                overflow: hidden;
+                padding: 0 10px;
+                margin: 6px auto;
+                box-sizing: content-box;
+
+                li {
+                    text-align: center;
+                    font-size: 0.875em;
+                    list-style: none;
+                    margin: 0 5px;
+                    float: right;
+
+                    .story {
+                        width: 56px;
+
+                        h3 {
+                            font-size: 0.75em;
+                            margin: 0.5em auto;
+                        }
+
+                        .bubble {
+                            position: relative;
+                            width: 56px;
+                            height: 56px;
+                            border-radius: 50%;
+                            background: #ddd;
+
+                            a {
+                                display: block;
+                                position: absolute;
+                                top: 1px;
+                                right: 1px;
+                                bottom: 1px;
+                                left: 1px;
+                                text-align: left;
+                                border-radius: 50%;
+                                background: #fff;
+                                overflow: hidden;
+                                border: 3px solid #fff;
+                                background: #eee;
+                                text-indent: -9999px;
+                                background-size: cover;
+                                box-shadow: 0px 6px 8px -2px rgba(0, 0, 0, .25);
+                            }
+                        }
+                    }
+
+                    &.active {
+                        float: left;
+
+                        .bubble {
+                            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#50fc59+0,2c7b25+76 */
+                            background: rgb(221, 51, 170);
+                            /* Old browsers */
+                            background: -moz-linear-gradient(45deg, rgba(80, 252, 89, 1) 0%, rgba(221, 51, 170, 1) 76%);
+                            /* FF3.6-15 */
+                            background: -webkit-linear-gradient(45deg, rgba(80, 252, 89, 1) 0%, rgba(221, 51, 170, 1) 76%);
+                            /* Chrome10-25,Safari5.1-6 */
+                            background: linear-gradient(45deg, rgba(80, 252, 89, 1) 0%, rgba(221, 51, 170, 1) 76%);
+                            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#50fc59', endColorstr='#50fc59', GradientType=1);
+
+                            /* IE6-9 fallback on horizontal gradient */
+                            a {
+                                top: 2px;
+                                right: 2px;
+                                bottom: 2px;
+                                left: 2px;
+                                border-width: 1px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .stories-btn {
+                display: none;
+            }
+        }
+    }
+}
+
+.data {
+    padding-bottom: 3em;
+
+    article {
+        margin: 1em 0;
+
+        iframe {
+            background: #323d4d;
+        }
+
+        .description {
+            background: #ffd5d5;
+            padding: 1em 15px;
+            margin-top: -5px;
+
+            b {
+                display: block;
+                font-size: 3em;
+                float: left;
+                margin: 0 30px 5px 0;
+                font-family: 'Roboto', sans-serif;
+            }
+        }
+    }
+}
+
+.info {
+    padding-bottom: 3em;
+
+    h3:not(:first-of-type) {
+        margin-top: 2em;
+    }
+
+    h3,
+    h4 {
+        font-size: 1.25em;
+        font-weight: 700;
+        font-family: 'Raleway', sans-serif;
+        color: #fff;
+        margin-bottom: 0.5em;
+    }
+
+    h4 {
+        font-style: normal;
+        font-size: 1em;
+        text-transform: none;
+    }
+
+    li {
+        color: $color-scondary;
+        font-size: 1em;
+
+        span {
+            color: #fff;
+        }
+    }
+
+    a {
+        color: #fff;
+        text-decoration: underline;
+
+        &:hover {
+            color: #d3a;
+        }
+    }
+
+    p {
+        color: #fff;
+    }
+}
+
+#player {
     position: fixed;
     background: #fff;
-    bottom: -4em;
+    top: -2em;
     left: 0;
-    top: unset;
     right: 0;
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding: 0.25em 15px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
-    transition: bottom 300ms ease-in-out;
-    border-top: 3px solid fuchsia;
-    padding: 10px 55px;
-    z-index: 899;
+    transition: top 300ms ease-in-out;
 
     &.visible {
-      bottom: 0;
-      top: unset;
+        top: 0;
     }
 
     .controls,
     .title {
-      font-size: 1em;
-      float: left;
-      width: 1.5em;
-      margin: 0;
+        font-size: 1em;
+        float: left;
+        width: 1.5em;
+        margin: 0;
     }
 
     .controls {
-      cursor: pointer;
-
-      svg {
-        font-size: 1.5em;
-      }
-
-      &:hover {
-        color: #d3a;
-      }
+        cursor: pointer;
     }
 
     .title {
-      width: calc(100% - 3em);
-      line-height: 1.5em;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
-      padding-left: 10px;
+        width: calc(100% - 3em);
+        line-height: 1.5em;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
     }
 
     .title+.controls {
-      text-align: right;
+        text-align: right;
     }
-  }
+}
 
-  .stories {
-    .story-cards {
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      position: absolute;
-      top: -9999px;
-      left: -9999px;
-      background: $color-background;
 
-      &.active {
-        position: static;
-        width: 100%;
-        height: 100%;
-      }
 
-      .next,
-      .prev {
-        display: block;
-        position: absolute;
-        width: 35%;
-        height: 100%;
-        top: 0;
-        right: 0;
-        background: #fff;
-        z-index: 10;
-        text-indent: -9999px;
+@keyframes playerEffect {
+    0% {
+        opacity: .75;
+        transform: scale(0.5);
+    }
+
+    100% {
         opacity: 0;
-        transition: opacity 100ms ease-out; 
-      }
-
-      .prev {
-        right: auto;
-        left: 0;
-      }
-
-      .back {
-        color: #fff;
-        display: inline-block;
-        width: 80px;
-        padding: 1em 0;
-        position: absolute;
-        bottom: 1em;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        z-index: 11;
-        font-size: 0.875em;
-        opacity: 0.5;
-        transition: opacity 200ms ease-in-out;
-
-        &:hover {
-          opacity: 1;
-          text-decoration: none;
-        }
-      }
-
-      video {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .story-timelines {
-        position: absolute;
-        right: 8px;
-        top: 10px;
-        left: 8px;
-        overflow: hidden;
-
-        .single-timeline {
-          position: relative;
-          float: left;
-
-          .progress {
-            position: relative;
-            background: rgba(255, 255, 255, .25);
-            height: 2px;
-            border-radius: 0;
-            margin: 0 2px;
-
-            .bar {
-              background: rgba(255, 255, 255, .75);
-              height: 100%;
-              width: 0%;
-              position: absolute;
-              top: 0;
-              left: 0;
-              bottom: 0;
-            }
-          }
-        }
-      }
+        transform: scale(1);
     }
-    .menu {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: #fafafa;
-      max-width: unset;
-      width: 100% !important;
-      padding-bottom: 30px;
-      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fafafa+22,ffffff+100 */
-      background: rgb(250, 250, 250);
-      /* Old browsers */
-      background: -moz-linear-gradient(45deg, rgba(250, 250, 250, 1) 22%, rgba(255, 255, 255, 1) 100%);
-      /* FF3.6-15 */
-      background: -webkit-linear-gradient(45deg, rgba(250, 250, 250, 1) 22%, rgba(255, 255, 255, 1) 100%);
-      /* Chrome10-25,Safari5.1-6 */
-      background: linear-gradient(45deg, rgba(250, 250, 250, 1) 22%, rgba(255, 255, 255, 1) 100%);
-      /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#ffffff', GradientType=1);
-      /* IE6-9 fallback on horizontal gradient */
-      border-top: 3px solid #fff;
-      box-shadow: 0 -2px 10px rgba(0, 0, 0, .1);
-      transition: bottom 300ms ease-in, padding 280ms ease-in-out; 
-      bottom: -95px;
+}
 
-      &.opened {
-        bottom: 0;
-        transition-timing-function: ease-out;
-      }
+/* estilos desktop */
+    
+@media only screen and (min-width: 769px) {
+    .app-header {
+        padding-top: 15px;
+        padding-bottom: 15px;
 
-      .slider-guide {
-        margin: 0 auto;
-        padding: 0;
+        .toggle-menu {
+            display: flex;
+            align-items: center;
+            background: #100015;
+            color: #fff;
+            font-size: 1.225em;
+            text-transform: uppercase;
+            padding: 5px 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            position: fixed;
+            right: 55px;
+            top: 30px;
+            transition: all .2s ease-in-out;
+            border-radius: 0;
+            border-style: unset;
 
-        ul {
-          overflow: hidden;
-          padding: 0 10px;
-          box-sizing: content-box;
-          margin: 6px;
+            svg {
+                margin-right: 8px;
+                height: 28px;
+            }
 
-          li {
-            text-align: center;
-            font-size: 0.875em;
-            list-style: none;
-            margin: 0 5px;
-            float: right;
+            &:hover,
+            &:focus,
+            &:active {
+                box-shadow: none;
+                text-decoration: none;
+                background: #e9e9e9 !important;
+                color: #d3a !important;
+            }
 
-            .story {
-              width: 56px;
+            z-index: 99;
+        }
 
-              h3 {
-                font-size: 0.75em;
-                margin: 0.5em auto;
-              }
+        nav {
+            position: fixed;
+            top: 0;
+            bottom: unset;
+            right: 0;
+            left: unset;
+            height: 100vh;
+            width: 260px !important;
+            z-index: 100;
+            padding-top: 70px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, .1);
+            background: #fff;
+            box-shadow: 0 -5px 5px -5px #bbbc;
+            transition: .25s ease-in-out all;
 
-              .bubble {
-                position: relative;
-                width: 56px;
-                height: 56px;
-                border-radius: 50%;
-                background: #ddd;
+            ul {
+                padding: 0;
+                margin: 0;
+                margin-right: 15px solid #fff;
+                margin-left: 15px solid #fff;
+            }
+
+            li {
+                display: block;
+                width: auto;
+                border-bottom: 1px solid #f3f3f3;
+                overflow: hidden;
+
+                &:first-of-type {
+                    border-top: 1px solid #f3f3f3;
+                }
+
+                &:last-child {
+                    border-bottom: 1px solid #f3f3f3;
+                }
+
+                &:nth-of-type(3) {
+                    display: none;
+                    position: fixed;
+                    bottom: 142px;
+                    left: 55px;
+                    z-index: 9998;
+                    background: white;
+
+                    a {
+                        width: 65px;
+                        height: 65px;
+                        padding: 10px 0;
+                        text-align: center;
+                    }
+
+                    span.sr-only {
+                        display: none;
+                    }
+
+                    &.active {
+                        background: #d3a;
+                    }
+                }
 
                 a {
-                  display: block;
-                  position: absolute;
-                  top: 1px;
-                  right: 1px;
-                  bottom: 1px;
-                  left: 1px;
-                  text-align: left;
-                  border-radius: 50%;
-                  background: #fff;
-                  overflow: hidden;
-                  border: 3px solid #fff;
-                  background: #eee;
-                  text-indent: -9999px;
-                  background-size: cover;
-                  box-shadow: 0px 6px 8px -2px rgba(0, 0, 0, .25);
+                    display: block;
+                    padding: 0.75em 0 1.25em 1.925em;
+                    text-align: left;
+                    color: #100015;
+                    text-transform: none;
+                    text-decoration: none;
+                    font-size: 0.625em;
+                    margin: 0;
+                    transition: all 200ms ease-in-out;
+
+                    &:not(.no-link):hover,
+                    &.active {
+                        background-color: #fafafa;
+                        color: $color-scondary;
+                    }
+
+                    &.no-link.active {
+                        background-color: $color-scondary;
+                        color: #fafafa;
+                    }
+
+                    &:not(.active).news::after {
+                        content: none;
+                    }
+
+                    &.news span:not(.sr-only)::after {
+                        content: '';
+                        display: block;
+                        width: 9px;
+                        height: 9px;
+                        border-radius: 50%;
+                        background-color: $color-scondary;
+                        position: absolute;
+                        top: 42%;
+                        left: 50.25%;
+                        margin-left: 4px;
+                        margin-top: -2px;
+                    }
+
+                    span {
+                        display: inline-block;
+                        font-size: 2.5em;
+                    }
+
+                    span.sr-only {
+                        position: relative;
+                        width: auto;
+                        height: auto;
+                        overflow: visible;
+                        font-size: 1rem;
+                        padding-top: 0;
+                        padding-left: 10px;
+                        display: inline-block;
+                    }
+
+                    &:hover {
+                        background: #e9e9e9 !important;
+                    }
                 }
-              }
             }
+
+            .close-btn {
+                position: absolute;
+                font-size: 1.225em;
+                padding: 5px 15px;
+                right: 10px;
+                top: 10px;
+                background: transparent;
+                display: flex;
+
+                &:hover,
+                &:active,
+                &:focus {
+                    background: #e9e9e9 !important;
+                    border-style: none;
+                    border: 0px;
+
+                    svg path {
+                        fill: #d3a !important;
+                    }
+                }
+
+                svg {
+                    margin-right: 0;
+
+                    path {
+                        fill: #000 !important;
+                    }
+                }
+            }
+        }
+    }
+
+    nav.active {
+        right: -360px !important;
+        transition-delay: 150ms;
+    }
+
+    #player {
+        position: fixed;
+        background: #fff;
+        bottom: -4em;
+        left: 0;
+        top: unset;
+        right: 0;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+        transition: bottom 300ms ease-in-out;
+        border-top: 3px solid fuchsia;
+        padding: 10px 55px;
+        z-index: 899;
+
+        &.visible {
+            bottom: 0;
+            top: unset;
+        }
+
+        .controls,
+        .title {
+            font-size: 1em;
+            float: left;
+            width: 1.5em;
+            margin: 0;
+        }
+
+        .controls {
+            cursor: pointer;
+
+            svg {
+                font-size: 1.5em;
+            }
+
+            &:hover {
+                color: #d3a;
+            }
+        }
+
+        .title {
+            width: calc(100% - 3em);
+            line-height: 1.5em;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            padding-left: 10px;
+        }
+
+        .title+.controls {
+            text-align: right;
+        }
+    }
+
+    .stories {
+        .story-cards {
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+            background: $color-background;
 
             &.active {
-              float: left;
-
-              .bubble {
-                /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#50fc59+0,2c7b25+76 */
-                background: rgb(221, 51, 170);
-                /* Old browsers */
-                background: -moz-linear-gradient(45deg, rgba(80, 252, 89, 1) 0%, rgba(221, 51, 170, 1) 76%);
-                /* FF3.6-15 */
-                background: -webkit-linear-gradient(45deg, rgba(80, 252, 89, 1) 0%, rgba(221, 51, 170, 1) 76%);
-                /* Chrome10-25,Safari5.1-6 */
-                background: linear-gradient(45deg, rgba(80, 252, 89, 1) 0%, rgba(221, 51, 170, 1) 76%);
-                /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#50fc59', endColorstr='#50fc59', GradientType=1);
-
-                /* IE6-9 fallback on horizontal gradient */
-                a {
-                  top: 2px;
-                  right: 2px;
-                  bottom: 2px;
-                  left: 2px;
-                  border-width: 1px;
-                }
-              }
+                position: static;
+                width: 100%;
+                height: 100%;
             }
-          }
+
+            .next,
+            .prev {
+                display: block;
+                position: absolute;
+                width: 35%;
+                height: 100%;
+                top: 0;
+                right: 0;
+                background: #fff;
+                z-index: 10;
+                text-indent: -9999px;
+                opacity: 0;
+                transition: opacity 100ms ease-out;
+            }
+
+            .prev {
+                right: auto;
+                left: 0;
+            }
+
+            .back {
+                color: #fff;
+                display: inline-block;
+                width: 80px;
+                padding: 1em 0;
+                position: absolute;
+                bottom: 1em;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                z-index: 11;
+                font-size: 0.875em;
+                opacity: 0.5;
+                transition: opacity 200ms ease-in-out;
+
+                &:hover {
+                    opacity: 1;
+                    text-decoration: none;
+                }
+            }
+
+            video {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .story-timelines {
+                position: absolute;
+                right: 8px;
+                top: 10px;
+                left: 8px;
+                overflow: hidden;
+
+                .single-timeline {
+                    position: relative;
+                    float: left;
+
+                    .progress {
+                        position: relative;
+                        background: rgba(255, 255, 255, .25);
+                        height: 2px;
+                        border-radius: 0;
+                        margin: 0 2px;
+
+                        .bar {
+                            background: rgba(255, 255, 255, .75);
+                            height: 100%;
+                            width: 0%;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            bottom: 0;
+                        }
+                    }
+                }
+            }
         }
 
-        .stories-btn {
-          display: block;
-          background: white;
-          width: auto;
-          padding: 15px;
-          text-align: center;
-          position: absolute;
-          top: -62px;
-          left: 2%;
-          z-index: 99;
-          border-radius: 0;
-          border: 0;
-          border-top-left-radius: 5px;
-          border-top-right-radius: 5px;
-          border-style: none;
+        .menu {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #fafafa;
+            max-width: unset;
+            width: 100% !important;
+            padding-bottom: 30px;
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fafafa+22,ffffff+100 */
+            background: rgb(250, 250, 250);
+            /* Old browsers */
+            background: -moz-linear-gradient(45deg, rgba(250, 250, 250, 1) 22%, rgba(255, 255, 255, 1) 100%);
+            /* FF3.6-15 */
+            background: -webkit-linear-gradient(45deg, rgba(250, 250, 250, 1) 22%, rgba(255, 255, 255, 1) 100%);
+            /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(45deg, rgba(250, 250, 250, 1) 22%, rgba(255, 255, 255, 1) 100%);
+            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#ffffff', GradientType=1);
+            /* IE6-9 fallback on horizontal gradient */
+            border-top: 3px solid #fff;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, .1);
+            transition: bottom 300ms ease-in, padding 280ms ease-in-out;
+            bottom: -95px;
 
-          &:hover,
-          &:focus,
-          &.active {
-            background: #d3a;
+            &.opened {
+                bottom: 0;
+                transition-timing-function: ease-out;
+            }
+
+            .slider-guide {
+                margin: 0 auto;
+                padding: 0;
+
+                ul {
+                    overflow: hidden;
+                    padding: 0 10px;
+                    box-sizing: content-box;
+                    margin: 6px;
+
+                    li {
+                        text-align: center;
+                        font-size: 0.875em;
+                        list-style: none;
+                        margin: 0 5px;
+                        float: right;
+
+                        .story {
+                            width: 56px;
+
+                            h3 {
+                                font-size: 0.75em;
+                                margin: 0.5em auto;
+                            }
+
+                            .bubble {
+                                position: relative;
+                                width: 56px;
+                                height: 56px;
+                                border-radius: 50%;
+                                background: #ddd;
+
+                                a {
+                                    display: block;
+                                    position: absolute;
+                                    top: 1px;
+                                    right: 1px;
+                                    bottom: 1px;
+                                    left: 1px;
+                                    text-align: left;
+                                    border-radius: 50%;
+                                    background: #fff;
+                                    overflow: hidden;
+                                    border: 3px solid #fff;
+                                    background: #eee;
+                                    text-indent: -9999px;
+                                    background-size: cover;
+                                    box-shadow: 0px 6px 8px -2px rgba(0, 0, 0, .25);
+                                }
+                            }
+                        }
+
+                        &.active {
+                            float: left;
+
+                            .bubble {
+                                /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#50fc59+0,2c7b25+76 */
+                                background: rgb(221, 51, 170);
+                                /* Old browsers */
+                                background: -moz-linear-gradient(45deg, rgba(80, 252, 89, 1) 0%, rgba(221, 51, 170, 1) 76%);
+                                /* FF3.6-15 */
+                                background: -webkit-linear-gradient(45deg, rgba(80, 252, 89, 1) 0%, rgba(221, 51, 170, 1) 76%);
+                                /* Chrome10-25,Safari5.1-6 */
+                                background: linear-gradient(45deg, rgba(80, 252, 89, 1) 0%, rgba(221, 51, 170, 1) 76%);
+                                /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#50fc59', endColorstr='#50fc59', GradientType=1);
+
+                                /* IE6-9 fallback on horizontal gradient */
+                                a {
+                                    top: 2px;
+                                    right: 2px;
+                                    bottom: 2px;
+                                    left: 2px;
+                                    border-width: 1px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .stories-btn {
+                    display: block;
+                    background: white;
+                    width: auto;
+                    padding: 15px;
+                    text-align: center;
+                    position: absolute;
+                    top: -62px;
+                    left: 2%;
+                    z-index: 99;
+                    border-radius: 0;
+                    border: 0;
+                    border-top-left-radius: 5px;
+                    border-top-right-radius: 5px;
+                    border-style: none;
+                    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+
+                    &:hover,
+                    &:focus,
+                    &.active {
+                        background: #d3a;
+                        color: #fff;
+                        box-shadow: none;
+
+                        span.btn-title {
+                            color: #fff;
+                        }
+
+                        svg path {
+                            fill: #fff;
+                        }
+                    }
+
+                    svg {
+                        height: 25px;
+                        width: 25px;
+
+                        path {
+                            fill: black;
+                        }
+                    }
+
+                    span {
+                        vertical-align: middle;
+                        display: inline-block
+                    }
+
+                    span.btn-title {
+                        display: inline-block;
+                        color: #000
+                    }
+                }
+            }
+        }
+
+        .menu.opened.scrolleable {
+            bottom: 0px;
+        }
+
+        .menu.scrolleable {
+            bottom: -111px;
+        }
+
+        .menu.opened .stories-btn {
+            background: #d3a !important;
             color: #fff;
-            box-shadow: none;
 
             span.btn-title {
-              color: #fff;
+                color: #fff;
             }
 
             svg path {
-              fill: #fff;
+                fill: #fff;
             }
-          }
-
-          svg {
-            height: 25px;
-            width: 25px;
-
-            path {
-              fill: black;
-            }
-          }
-
-          span {
-            vertical-align: middle;
-            display: inline-block
-          }
-
-          span.btn-title {
-            display: inline-block;
-            color: #000
-          }
         }
-      }
     }
-    .menu.opened.scrolleable {
-      bottom: 0px;
-    }
-    .menu.scrolleable {
-      bottom: -111px;
-    } 
-    .menu.opened .stories-btn {
-      background: #d3a !important;
-      color: #fff;
-      span.btn-title {
-        color: #fff;
-      }
 
-      svg path {
-        fill: #fff;
-      }
+    .info {
+        position: relative;
+
+        .lists-cont {
+            position: relative;
+            padding-bottom: 65px;
+            
+            &::before {
+                content: "";
+                background: #d3a;
+                position: absolute;
+                width: 1px;
+                //height: 100%;
+                bottom: 0;
+                top: 0;
+                left: 30%;
+                border-bottom: 65px solid #100015;
+            }
+        }
+        
+
+        article.info-cont {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+
+            &:first-of-type h3 {
+                max-width: 255px;
+            }
+
+            h3 {
+                width: 40%;
+            }
+
+            ul {
+                width: 60%;
+
+                li {
+                    line-height: 1.75;
+                }
+            }
+
+            div {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                margin-left: auto;
+                width: 60%;
+
+                h4 {
+                    justify-self: flex-start;
+                }
+
+                ul {
+                    width: 100%;
+                }
+            }
+
+            &.websites {
+                h3 {
+                    margin-right: auto;
+                }
+
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        .cont-credits {
+            background: #fff;
+            .info-credits {
+                display: flex;
+                flex-direction: column;
+                padding-top: 50px;
+                padding-bottom: 50px;
+                p {
+                    color: #100015;
+                }
+                .names {
+                    h4 {
+                        margin-top: 20px;
+                        color: #100015;
+                    }
+
+                    ul {
+                        padding-left: 0;
+
+                        li {
+                            display: inline-block;
+
+                            &::after {
+                                content: " / ";
+                                color: #d3a;
+                                font-weight: 600;
+                                padding-right: 5px;
+                                padding-left: 5px;
+                            }
+
+                            &:last-of-type::after {
+                                content: none;
+                            }
+
+                            span {
+                                color: #100015;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
-  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+    .info {
+        position: relative;
+
+        .lists-cont {
+            position: relative;
+            
+            &::before {
+                content: "";
+                background:#d3a;
+                position: absolute;
+                width: 1px;
+                //height: 100%;
+                bottom: 0;
+                top: 0;
+                left: 39.5%;
+            }
+
+            .websites h4 {
+                padding-left: 15px;
+            }
+        }
+    }
 }
 
 /* fin estilos desktop */
