@@ -195,6 +195,31 @@ section header {
         color: #fff;
     }
 }
+.cont-footer {
+    //padding: 0!important;
+    .app.footer-template {
+        background :#100015;
+        color: #fff;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        height: 65px!important;
+        margin-bottom: 49px;
+        display: flex; 
+        align-items: center;
+        justify-content: center; 
+        position: relative;
+            p {
+                font-size: .825em;
+                margin: 0;
+                position: absolute;
+                right: unset;
+                left: unset;
+                a {
+                    color: #2c7b25;
+                }
+            }
+        }
+}
 
 .podcast {
     .episode {
@@ -231,10 +256,21 @@ section header {
 
             .card-body {
                 padding-top: 0;
+                //position: relative;
 
                 .description {
                     min-height: 120px;
                 }
+                /*.dl-btn {
+                    position: absolute;
+                    bottom: 250px;
+                    right: 20px;
+                    a {
+                        img {
+                            height: 16px;
+                        }
+                    }
+                }*/
             }
 
             .card-number {
@@ -626,7 +662,7 @@ main {
 }
 
 .info {
-    padding-bottom: 3em;
+    //padding-bottom: 3em;
 
     h3:not(:first-of-type) {
         margin-top: 2em;
@@ -921,6 +957,12 @@ main {
     nav.active {
         right: -360px !important;
         transition-delay: 150ms;
+    }
+
+    .cont-footer .app.footer-template {
+        margin-bottom: 0;
+        justify-content: flex-end;
+        right: 55px;
     }
 
     #player {
@@ -1403,3 +1445,11 @@ main {
 }
 
 /* fin estilos desktop */
+
+
+@media only screen and (max-width: 768px) {
+    .stories .menu.opened {
+        padding-bottom: 0!important;
+        bottom: 49px;
+    }
+}

@@ -22,6 +22,9 @@
           <div class="description" v-if="(episodeContent.description || description)">
             <p>{{ (episodeContent.description || description) }}</p>
           </div>
+          <!--div class="dl-btn">
+            <a href="#" download><img src="../assets/img/download.svg" alt="descargar podcast" /><span class="sr-only">Descargar podcast</span></a>
+          </div-->
         </b-card-body>
     </b-card>
   </article>

@@ -12,7 +12,7 @@
       </main>
       <app-podcast-player @opened="playerVisible" />
     </b-container>
-    <b-container>
+    <b-container fluid class="cont-footer">
       <app-footer />
     </b-container>
   </div>

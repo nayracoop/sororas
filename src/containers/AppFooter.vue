@@ -1,6 +1,6 @@
 <template>
-  <div class="app">
-    Desarrollado por....
+  <div class="app footer-template">
+      <p>Desarrollado por <a href="https://nayra.coop" target="_blank">nayra.coop</a></p>
   </div>
 </template>
 
@@ -14,5 +14,4 @@ export default {
     }
   }
 }
-
 </script>
