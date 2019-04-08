@@ -195,30 +195,34 @@ section header {
         color: #fff;
     }
 }
+
 .cont-footer {
+
     //padding: 0!important;
     .app.footer-template {
-        background :#100015;
+        background: #100015;
         color: #fff;
         padding-top: 20px;
         padding-bottom: 20px;
-        height: 65px!important;
+        height: 65px !important;
         margin-bottom: 49px;
-        display: flex; 
+        display: flex;
         align-items: center;
-        justify-content: center; 
+        justify-content: center;
         position: relative;
-            p {
-                font-size: .825em;
-                margin: 0;
-                position: absolute;
-                right: unset;
-                left: unset;
-                a {
-                    color: #2c7b25;
-                }
+
+        p {
+            font-size: .825em;
+            margin: 0;
+            position: absolute;
+            right: unset;
+            left: unset;
+
+            a {
+                color: #2c7b25;
             }
         }
+    }
 }
 
 .podcast {
@@ -256,21 +260,51 @@ section header {
 
             .card-body {
                 padding-top: 0;
-                //position: relative;
+                position: relative;
 
                 .description {
                     min-height: 120px;
                 }
-                /*.dl-btn {
+
+                .dl-btn {
                     position: absolute;
-                    bottom: 250px;
+                    top: 20px;
                     right: 20px;
+
                     a {
-                        img {
-                            height: 16px;
+                        &:hover {
+                            svg {
+                                .st0 {
+                                    fill: #d3a;
+                                    stroke: #d3a;
+                                    stroke-width: 1.5;
+                                    stroke-linecap: round;
+                                    stroke-linejoin: bevel;
+                                    stroke-miterlimit: 10;
+                                }
+    
+                                .st1 {
+                                    fill: #d3a;
+                                }                           
                         }
                     }
-                }*/
+                        svg {
+                            height: 16px;
+                            .st0 {
+                                fill: #7A7A7A;
+                                stroke: #7A7A7A;
+                                stroke-width: 1.5;
+                                stroke-linecap: round;
+                                stroke-linejoin: bevel;
+                                stroke-miterlimit: 10;
+                            }
+
+                            .st1 {
+                                fill: #7A7A7A;
+                            }
+                        }
+                    }
+                }
             }
 
             .card-number {
@@ -760,7 +794,7 @@ main {
 }
 
 /* estilos desktop */
-    
+
 @media only screen and (min-width: 769px) {
     .app-header {
         padding-top: 15px;
@@ -1313,7 +1347,7 @@ main {
         .lists-cont {
             position: relative;
             padding-bottom: 65px;
-            
+
             &::before {
                 content: "";
                 background: #d3a;
@@ -1326,7 +1360,7 @@ main {
                 border-bottom: 65px solid #100015;
             }
         }
-        
+
 
         article.info-cont {
             display: flex;
@@ -1374,16 +1408,20 @@ main {
                 align-items: center;
             }
         }
+
         .cont-credits {
             background: #fff;
+
             .info-credits {
                 display: flex;
                 flex-direction: column;
                 padding-top: 50px;
                 padding-bottom: 50px;
+
                 p {
                     color: #100015;
                 }
+
                 .names {
                     h4 {
                         margin-top: 20px;
@@ -1425,10 +1463,10 @@ main {
 
         .lists-cont {
             position: relative;
-            
+
             &::before {
                 content: "";
-                background:#d3a;
+                background: #d3a;
                 position: absolute;
                 width: 1px;
                 //height: 100%;
@@ -1449,7 +1487,7 @@ main {
 
 @media only screen and (max-width: 768px) {
     .stories .menu.opened {
-        padding-bottom: 0!important;
+        padding-bottom: 0 !important;
         bottom: 49px;
     }
 }

@@ -22,9 +22,14 @@
           <div class="description" v-if="(episodeContent.description || description)">
             <p>{{ (episodeContent.description || description) }}</p>
           </div>
-          <!--div class="dl-btn">
-            <a href="#" download><img src="../assets/img/download.svg" alt="descargar podcast" /><span class="sr-only">Descargar podcast</span></a>
-          </div-->
+          <div class="dl-btn">
+            <a :href="episodeContent.audio.src" download>
+              <svg version="1.1" id="dl-btn-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 22.9 30.9" style="enable-background:new 0 0 22.9 30.9;" xml:space="preserve" role="img">
+              <title>descargar podcast</title>
+              <g><line class="st0" x1="1.5" y1="29.8" x2="21.4" y2="29.8"/><path class="st1" d="M21.4,14.9c-0.4-0.4-1.1-0.4-1.5,0l-7.5,7.5V3.1h-2.1v19.3L2.9,15c-0.4-0.4-1-0.4-1.5,0c-0.4,0.4-0.4,1,0,1.5l9.3,9.3c0.4,0.4,1,0.4,1.5,0l9.1-9.4C21.8,16,21.8,15.3,21.4,14.9z"/><path class="st1" d="M12.5,2.2c0-0.6-0.5-1-1-1c-0.6,0-1,0.5-1,1v1h2.1V2.2z"/></g></svg>
+              <span class="sr-only">Descargar podcast</span>
+            </a>
+          </div>
         </b-card-body>
     </b-card>
   </article>
