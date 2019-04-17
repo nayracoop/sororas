@@ -2,7 +2,7 @@
   <article class="episode">
     <p class="label">Episodio #{{ episode }}</p>
     <b-card ref="card" no-body>
-      <span class="card-pic-credit">Ilustración: <span class="name">Eva Semino</span></span>
+      <span v-if="episodeContent.imgCredits.text" class="card-pic-credit">Ilustración: <a :href="episodeContent.imgCredits.url" target="_blank" :title="episodeContent.imgCredits.title" class="name">{{ episodeContent.imgCredits.text }}</a></span>
         <div @click="toggleAudio" class="player" :style="'background-image: url(' + (episodeContent.img || cover) + '); ' + (parallax ? 'background-position:center ' + offset + 'px' : '')">
           <!-- <audio ref="audio" :src="(episodeContent.audio.src || src)" @timeupdate="timeUpdated" @loadedmetadata="timeUpdated" @ended="audioEnded"></audio> -->
           <font-awesome-icon class="effect play" icon="play-circle" />
@@ -18,16 +18,16 @@
         </div>
         <b-card-body>
           <p class="card-number">#{{ episode }}</p>
+          <span>{{ index }}</span>
           <h3>{{ (episodeContent.title || title) }}</h3>
           <div class="description" v-if="(episodeContent.description || description)">
             <p>{{ (episodeContent.description || description) }}</p>
           </div>
           <div class="dl-btn">
-            <a :href="episodeContent.audio.src" download>
+            <a :href="episodeContent.audio.src" title="Descargar episodio" download>
               <svg version="1.1" id="dl-btn-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 22.9 30.9" style="enable-background:new 0 0 22.9 30.9;" xml:space="preserve" role="img">
-              <title>descargar podcast</title>
               <g><line class="st0" x1="1.5" y1="29.8" x2="21.4" y2="29.8"/><path class="st1" d="M21.4,14.9c-0.4-0.4-1.1-0.4-1.5,0l-7.5,7.5V3.1h-2.1v19.3L2.9,15c-0.4-0.4-1-0.4-1.5,0c-0.4,0.4-0.4,1,0,1.5l9.3,9.3c0.4,0.4,1,0.4,1.5,0l9.1-9.4C21.8,16,21.8,15.3,21.4,14.9z"/><path class="st1" d="M12.5,2.2c0-0.6-0.5-1-1-1c-0.6,0-1,0.5-1,1v1h2.1V2.2z"/></g></svg>
-              <span class="sr-only">Descargar podcast</span>
+              <span class="sr-only">Descargar episodio</span>
             </a>
           </div>
         </b-card-body>
@@ -55,7 +55,8 @@ export default {
     cover: '',
     src: '',
     coverOffset: 0,
-    parallax: true
+    parallax: true,
+    imgCredits: null
   },
   computed: {
     ...mapGetters({
