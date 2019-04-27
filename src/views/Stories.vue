@@ -7,7 +7,7 @@
       <span class="btn-title">Historias</span>
     </b-button>
         <ul ref="storiesMenuContent" :style="'width:'+menuWidth+'px'">
-          <app-story-bubble :title="character.name" :id="index" v-for="(character, index) in storyList" @open="toggleFullscreen" />
+          <app-story-bubble :title="character.name" :id="index" v-for="(character, index) in storyList" :key="character.name" @open="toggleFullscreen" />
         </ul>
       </div>
     </b-container>

@@ -5,16 +5,16 @@
         <app-header ref="headerMenu" />
       </div>
     </b-container>
-    <b-container fluid class="app-body">
+    <div class="app-body">
       <main :class="{ 'menu-opened':storyMenuOpened }">
         <router-view></router-view>
         <app-stories ref="stories" />
       </main>
       <app-podcast-player @opened="playerVisible" />
-    </b-container>
-    <b-container fluid class="cont-footer">
+    </div>
+    <div class="cont-footer">
       <app-footer />
-    </b-container>
+    </div>
   </div>
 </template>
 
@@ -44,7 +44,7 @@ export default {
     })
   },
   mounted () {
-    this.$refs.header.style.height = (Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - 106) + 'px'
+    this.$refs.header.style.height = (Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - 15) + 'px'
   },
   beforeRouteUpdate (to, from, next) {
     this.$refs.headerMenu.toggleNav()
