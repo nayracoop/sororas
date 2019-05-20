@@ -76,8 +76,10 @@ export default {
       // this.podcastEpisodes.find(el => { return el.audio.paused == false }).audio.paused = true
     },
     timeUpdated () {
-      this.updateTime(this.currentAudio.currentTime)
-      this.updateDuration(this.currentAudio.duration)
+      if(this.currentAudio) {
+        this.updateTime(this.currentAudio.currentTime)
+        this.updateDuration(this.currentAudio.duration)
+      }
       // this.episodeContent.audio.currentTime = this.audio.currentTime
       // this.episodeContent.audio.duration = this.audio.duration
       // this.$refs.progress.style.width = (this.currentTime / this.duration * 100) + '%'

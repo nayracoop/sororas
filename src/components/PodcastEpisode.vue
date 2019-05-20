@@ -18,7 +18,6 @@
         </div>
         <b-card-body>
           <p class="card-number">#{{ episode }}</p>
-          <span>{{ index }}</span>
           <h3>{{ (episodeContent.title || title) }}</h3>
           <div class="description" v-if="(episodeContent.description || description)">
             <p>{{ (episodeContent.description || description) }}</p>
