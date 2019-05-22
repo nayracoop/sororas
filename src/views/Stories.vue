@@ -80,7 +80,7 @@ export default {
     	else if (document.msExitFullscreen) document.msExitFullscreen()
     },
     move (val) {
-      console.log(this.paddingBottom)
+      // console.log(this.paddingBottom)
       this.paddingBottom = (val) ? 49 : 0
     },
     calcStoriesWidth () {

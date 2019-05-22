@@ -394,11 +394,22 @@ section header {
             bottom: 0;
           }
         }
+
       }
+
 
       &.playing .play.effect,
       &.paused .pause.effect {
         animation: playerEffect 400ms ease-out;
+      }
+
+      &.loading {
+        .bar {
+          animation: loading 1.2s ease-in-out infinite alternate;
+        }
+        .controls {
+          pointer-events: none;
+        }
       }
 
       &:hover {
@@ -764,6 +775,7 @@ main {
   padding: 0.75em 15px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
   transition: top 300ms ease-in-out;
+  z-index: 10;
 
   &.visible {
     top: 0;
@@ -806,6 +818,23 @@ main {
   100% {
     opacity: 0;
     transform: scale(1);
+  }
+}
+
+@keyframes loading {
+  0% {
+    width: 0;
+    left: 0;
+    background-color: rgba(255,0,255,.75);
+  }
+  50% {
+    width:100%;
+    left: 0;
+  }
+  100% {
+    background-color: rgba(255,0,255,.75);
+    width: 0;
+    left: 100%;
   }
 }
 

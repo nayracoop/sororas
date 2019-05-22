@@ -1,7 +1,7 @@
 <template>
   <article class="episode">
     <p class="label">Episodio #{{ episode }}</p>
-    <b-card ref="card" no-body>
+    <b-card ref="card" :class="{ loading }" no-body>
       <span v-if="episodeContent.imgCredits.text" class="card-pic-credit">Ilustración: <a :href="episodeContent.imgCredits.url" target="_blank" :title="episodeContent.imgCredits.title" class="name">{{ episodeContent.imgCredits.text }}</a></span>
         <div @click="toggleAudio" class="player" :style="'background-image: url(' + (episodeContent.img || cover) + '); ' + (parallax ? 'background-position:center ' + offset + 'px' : '')">
           <!-- <audio ref="audio" :src="(episodeContent.audio.src || src)" @timeupdate="timeUpdated" @loadedmetadata="timeUpdated" @ended="audioEnded"></audio> -->
@@ -11,7 +11,7 @@
             <div class="bar" :style="'width:' + progressBarWidth"></div>
           </div>
           <div class="controls">
-            <b-button v-if="paused" variant="link"><font-awesome-icon icon="play-circle" /></b-button>
+            <b-button v-if="paused && !loading" variant="link"><font-awesome-icon icon="play-circle" /></b-button>
             <b-button v-else variant="link"><font-awesome-icon icon="pause-circle" /></b-button>
             <time>{{ time }}</time>
           </div>
@@ -44,7 +44,8 @@ export default {
       cardTop: 0,
       coverOffsetRange: 120,
       audio: null,
-      episodeContent: null
+      episodeContent: null,
+      loading: false
     }
   },
   props: {
@@ -86,10 +87,20 @@ export default {
     toggleAudio () {
       if (!this.episodeContent.audio.paused) {
         this.episodeContent.audio.el.pause()
+        this.episodeContent.audio.paused = true
       } else {
-        this.episodeContent.audio.el.play()
+        let promise = this.episodeContent.audio.el.play()
+        let $this = this
+        this.loading = true
+        if (promise !== undefined) {
+          promise.then(function() {
+            $this.loading = false
+            $this.episodeContent.audio.paused = false
+          }).catch(function(error) { $this.loading = false })
+        } else {
+          this.loading = false
+        }
       }
-      this.episodeContent.audio.paused = !this.episodeContent.audio.paused
     }
   },
   watch: {
@@ -99,6 +110,7 @@ export default {
         this.$refs.card.classList.add('paused')
         // this.audio.pause()
         this.$emit('paused')
+        this.loading = false
       } else {
         this.$refs.card.classList.add('playing')
         this.$refs.card.classList.remove('paused')

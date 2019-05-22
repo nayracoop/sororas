@@ -1,5 +1,5 @@
 <template>
-  <div id="player" :class="{ visible:visible }" class="container-fluid">
+  <div id="player" :class="{ visible:visible, loading:(currentAudio !== null && currentAudio.inPromise) }" class="container-fluid">
       <div class="controls">
         <font-awesome-icon @click="play" v-if="paused" class="play" icon="play-circle" />
         <font-awesome-icon @click="pause" v-else class="pause" icon="pause-circle" />
@@ -48,14 +48,14 @@ export default {
         this.currentAudio.play()
       }
     },
-    paused (val) {
-      if (this.currentEpisode > 0) {
-        if (val) this.currentAudio.pause()
-        else this.currentAudio.play()
-      }
-    },
+    // paused (val) {
+    //   if (this.currentEpisode > 0) {
+    //     if (val) this.currentAudio.pause()
+    //     else this.currentAudio.play()
+    //   }
+    // },
     visible (val) {
-      console.log(val)
+      // console.log(val)
       this.$emit('opened', val)
     }
   },

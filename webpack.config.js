@@ -75,6 +75,14 @@ module.exports = {
           name: 'fonts/[name].[hash:7].[ext]'//,
           // publicPath: process.env.NODE_ENV === 'production' ? '../../' : '/'
         }
+      },
+      {
+        test: /\.mp3$/,
+        loader: 'url-loader'
+      },
+      {
+        test: /\.mp4$/,
+        loader: 'url-loader'
       }
     ]
   },

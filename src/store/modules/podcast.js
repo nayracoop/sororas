@@ -128,11 +128,13 @@ export const mutations = {
   },
   [types.PLAY]: state => {
     if (state.current > 0) {
+      state.episodes.find(el => { return el.id == state.current }).audio.el.play()
       state.episodes.find(el => { return el.id == state.current }).audio.paused = false
     }
   },
   [types.PAUSE]: state => {
     if (state.current > 0) {
+      state.episodes.find(el => { return el.id == state.current }).audio.el.pause()
       state.episodes.find(el => { return el.id == state.current }).audio.paused = true
     }
   },

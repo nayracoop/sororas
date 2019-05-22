@@ -6,11 +6,11 @@
       </div>
     </b-container>
     <div class="app-body">
+      <app-podcast-player @opened="playerVisible" />
       <main :class="{ 'menu-opened':storyMenuOpened }">
         <router-view></router-view>
         <app-stories ref="stories" />
       </main>
-      <app-podcast-player @opened="playerVisible" />
     </div>
     <div class="cont-footer">
       <app-footer />
