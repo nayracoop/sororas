@@ -1,18 +1,26 @@
-# sororas
+# Sororas
 
-> Sororas Webdoc
+A transmedia documentary that reconstructs the practice of socorrism through testimonies of feminist activists who provide information and accompany pregnant people to voluntarily terminate a pregnancy safely in countries where this practice is penalized, and women relegated to clandestinity, which were able to do it thanks to sorority bonds.
 
-## Build Setup
+Read it in: [Spanish](README.es.md)
 
-``` bash
-# install dependencies
-npm install
+:point_right: Site online [https://sororas.com](https://sororas.com) :point_left:
 
-# serve with hot reload at localhost:8080
-npm run dev
+## Install
 
-# build for production with minification
-npm run build
-```
+Clone and run **`npm install`**
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Uso
+
+ :zap: Serve with hotreload **`npm run dev`**
+
+ :zap: Go to [http://localhost:8080/](http://localhost:8080/)
+
+## Prod
+
+ :zap: Build for production with minification **`npm run build`**
+
+## Licencia
+
+<img src="https://img.shields.io/badge/license-GPL--3-brightgreen" alt="license GNU General Public License v3.0"> GNU General Public License v3.0
+
